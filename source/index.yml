@@ -1,18 +1,16 @@
-title: API Reference
+title: API Reference for Cludo Search
 
 language_tabs:
   - bash
-  - ruby
-  - python
-  - javascript
+  - C#
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://www.cludo.com/en/contact-us'>Contact Cludo for a Developer Key</a>
 
 includes:
   - main
-  - _errors
+  - _searching
+  - _statistics
 
 search: true
 

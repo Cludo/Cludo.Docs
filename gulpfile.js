@@ -12,6 +12,7 @@ var rename = require("gulp-rename");
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var gutil = require('gulp-util');
+var runSeq = require('run-sequence');
 
 var del = require('del');
 var highlight = require('highlight.js');
@@ -129,10 +130,18 @@ gulp.task('NO_COMPRESS', function() {
   COMPRESS = false;
 });
 
-gulp.task('default', ['clean', 'fonts', 'images', 'highlightjs', 'js', 'sass', 'html']);
 
-gulp.task('serve', ['NO_COMPRESS', 'default'], function() {
+gulp.task('default', function(cb) {
+	return runSeq('clean', ['fonts', 'images', 'highlightjs', 'js', 'sass', 'html'], cb);
+});
 
+gulp.task('default-devel', function(cb) {
+	return runSeq('NO_COMPRESS', 'default', cb);
+});
+
+
+gulp.task('serve', ['default-devel'], function(cb) {
+	
   gulp.watch(['./source/*.html', './source/includes/**/*'], ['html']);
   gulp.watch('./source/javascripts/**/*', ['js']);
   gulp.watch('./source/stylesheets/**/*', ['sass']);

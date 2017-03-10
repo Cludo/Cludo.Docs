@@ -9,27 +9,27 @@ The documentation is a work in progress, and not all API calls are documented ye
 
 # Authentication
 
-> To authorize you need to use your Customer Key (API Key), EngineID and CustomerID and base 64 encode it:
+> To authorize you need to use your Customer Key (API Key) and CustomerID and base 64 encode it:
 
 ```csharp
-Convert.ToBase64String(Encoding.UTF8.GetBytes(customerId + ":" + engineId + ":" + CustomerKey)));
+Convert.ToBase64String(Encoding.UTF8.GetBytes(customerId + ":" + CustomerKey)));
 ```
 
 ```bash
 # With shell, you can just pass the correct header with each request
-curl -i -H "Authorization: Basic Base64(CustomerId:EngineId:CustomerKey)" 
+curl -i -H "Authorization: Basic Base64(CustomerId:CustomerKey)" 
 -H "Content-Type: application/json"
 ```
 
 
-> Make sure to replace `CustomerId`, `EngineId` and `CustomerKey` with your Customer ID, Site ID and your Customer key.
+> Make sure to replace `CustomerId` and `CustomerKey` with your Customer ID and your Customer key.
 
 Cludo uses Customer keys (API keys) to allow access to the API. You can <a href="https://www.cludo.com/en/contact-us/" target="_blank">contact</a> us to get your key.
 
 Cludo expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: Basic Base64(CustomerId:EngineId:CustomerKey)`
+`Authorization: Basic Base64(CustomerId:CustomerKey)`
 
 <aside class="notice">
-You must replace <code>CustomerId</code> with your customer id, <code>EngineId</code> with your site id, and the <code>CustomerKey</code> with your personal API key.
+You must replace <code>CustomerId</code> with your customer id and the <code>CustomerKey</code> with your personal API key.
 </aside>

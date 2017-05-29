@@ -6,7 +6,7 @@
 ```
 
 ```bash
-curl "https://api.cludo.com/api/v3/{CustomerID}/{EngineID}/search"
+curl "https://api.cludo.com/api/v3/{CustomerId}/{EngineID}/search"
   -H "Authorization: SiteKey XXXXXXX"
 ```
 

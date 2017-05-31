@@ -37,7 +37,7 @@ a | Random ID used for cache busting.
 
 ## Search statistics
 
-Retrieves a list of search counts for a specified period
+Retrieves a list of search counts for a specified period.
 
 ```bash
 

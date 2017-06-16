@@ -1,15 +1,70 @@
-# Searching
+<h2 id="full-searches">Full&nbsp;searches</h2>
 
-## Do a search
+Full searches are the standard way to search with Cludo. With these requests you have a great varity of functions available to express your search. To read more about the HTTP response, click [here](#full-searches_response). 
 
+
+
+
+
+#### HTTP request
+
+```shell
+curl 
+-x POST \
+-i https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search \
+-u {CustomerId}:{CustomerKey} \
 ```
-```
 
-```bash
-curl "https://api.cludo.com/api/v3/{CustomerId}/{EngineID}/search"
-  -H "Authorization: SiteKey XXXXXXX"
-```
+`POST https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search`
 
+Parameter | Description
+----- | ------
+CustomerId | Your customer id
+EngineId | The id of the search engine to use for the search
+
+
+
+
+<h4 id="full-searches_query-parameters">Query parameters</h4>
+
+There are several features available when making a full search. The features can be grouped into these five categories, each controling a different element of the search:
+
+* [Query](#full-searches_query)
+* [Filtering](#full-searches_filtering)
+* [Ranking](#full-searches_ranking)
+* [Grouping](#full-searches_grouping)
+* [Rendering](#full-searches_rendering)
+
+<aside class="notice">
+To se a full table of all HTTP request body properties, click [here](#full-searches_request-table).
+</aside>
+
+
+
+
+
+<!--```shell
+-d query=My test earch \
+-d responseType=JsonObject \
+-d perPage=25 \
+-d page=2 \
+```-->
+
+<!--```json
+{
+  "query" : "My test search",
+  "responseType" : "JsonObject",
+  "perPage" : "25",
+  "page" : "2",
+  "facets" : "",
+}
+```-->
+
+
+
+
+
+<!--
 > The above command returns JSON structured like this for the JSON request:
 
 ```json
@@ -137,56 +192,14 @@ curl "https://api.cludo.com/api/v3/{CustomerId}/{EngineID}/search"
 ```
 
 
-This endpoint makes a search.
+-->
 
-### HTTP Request
 
-`POST https://api.cludo.com/api/v3/{CustomerId}/{EngineID}/search`
+<!--
 
-### Query Parameters
 
-Parameter | Default | Description
+Parameter | Required | Type | Default&nbsp;value | Description
 --------- | ------- | -----------
-ResponseType | Json | Use Json to return Json objects. If Cludo has done the search template use JsonHTML which will return the HTML you can output.
-Template | SearchContent | If you just have one search template you can just use the default setting. Otherwise set the template which you would use here.
-applyMultiLevelFacets | True | If you need to have several levels of categories which should be filtered independently then set this to false.
-facets | Category: [] | As default we search in categories in the field "Category". If you want to only show results for two categories supply the name of the field eg. Category: [ "Category", "Years" ]. This will still supply you with the option to show results from other categories as well. If you need to remove some results from the search results, use filters instead.
-filters | {} | If you want to limit searches you can use filters. If you want to filter based upon domain name you can do it by { "DomainName": [ "https://mysubsite.domain.com ]}. If you need to filter by e.g. language it can be done by { "Language": ["En"] }. To search between two dates simply supply { "daterange": ["Start_date", "End_date", "2013-01-01", "2016-01-01"] } 
-page | 1 | Current page
-perPage | 10 | Amount of results returned
-query | "" | The text you want to search.
+facets || | Category: [] | As default we search in categories in the field "Category". If you want to only show results for two categories supply the name of the field eg. Category: [ "Category", "Years" ]. This will still supply you with the option to show results from other categories as well. If you need to remove some results from the search results, use filters instead.
 
-
-<aside class="success">
-Remember — this is the basis for all searching with Cludo. When you get around this API call you can do a lot of flexible searching yourself.
-</aside>
-
-## Get autocomplete items
-
-
-```bash
-curl "https://api.cludo.com/api/v3/36/58/Autocomplete?text=fe"
-  -H "Authorization: SiteKey MzY6NTg6U2VhcmNoS2V"
-```
-
-> The above command returns suggestions structured like this:
-
-```json
-[ "features", "feed", "feel" ]
-```
-
-This endpoint retrieves content for autocomplete.
-
-
-
-### HTTP Request
-
-`GET https://api.cludo.com/api/v3/{CustomerID}/{EngineID/Autocomplete?text={query}<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-CustomerID | The ID of your account.
-EngineID | The ID of the engine you want to get autocomplete results from.
-text | The search query.
+filters | {} | If you want to limit searches you can use filters. If you want to filter based upon domain name you can do it by { "DomainName": [ "https://mysubsite.domain.com ]}. If you need to filter by e.g. language it can be done by { "Language": ["En"] }. To search between two dates simply supply { "daterange": ["Start_date", "End_date", "2013-01-01", "2016-01-01"] } -->

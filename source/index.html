@@ -76,5 +76,42 @@ under the License.
         <% } %>
       </div>
     </div>
+    <div id="try-it-pane" class="hide">
+        <div class="try-it-header">
+            <div class="header-value">Try It Out</div>
+            <div class="dragger" onmousedown="TryIt.startDragging()"></div>
+            <div class="close-container">
+              <div onclick="TryIt.hide();" class="close"></div>
+            </div>
+        </div>
+        <div class="try-it-inner">          
+            <div id="request">
+                <div class="inner">
+                  <form onsubmit="TryIt.submitRequest(event)">                 
+                    <h2>Request</h2>
+                    <div id="static-url"></div>
+                    <h3>Url Parameters</h3>
+                    <div id="static-url-parameters">
+                    </div>
+                    <h3>Body Parameters</h3>
+                    <div id="static-request-parameters">
+                    </div>
+                    <button id="static-submit-button">Request</button>
+                  </form>
+                </div>
+            </div>
+            <div id="response">
+                <div class="inner">                  
+                    <h2>Response</h2>
+                    <p id="response-code">
+
+                    </p>
+                    <div class="loader-container">
+                      <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>

@@ -42,6 +42,7 @@ Parameter | Description
 CustomerId | Your customer id
 EngineId | The id of the search engine to use for the search
 
+<p><button id="search-try-it" class="try-it" data-definition="autocomplete">Try it</button></p>
 
 
 

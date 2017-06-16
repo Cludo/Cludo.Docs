@@ -2,8 +2,8 @@ title: API Reference for Cludo Search
 
 language_tabs:
   - shell
-
-  # - json
+  #- csharp
+  #- json
 
 toc_footers:
   - <a href='https://www.cludo.com/en/contact-us'>Contact Cludo for a Developer Key</a>

@@ -1,0 +1,47 @@
+{
+	"autocomplete": {
+		"method": "GET",
+		"endpoint": "https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/Autocomplete?text={Query}",
+		"coreVariables": [{
+			"name": "CustomerKey"
+		}],
+		"variables": [
+
+		]
+	},
+	"search": {
+		"endpoint": "https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search",
+		"coreVariables": [{
+			"name": "CustomerKey"
+		}],
+		"variables": [{
+				"name": "ResponseType",
+				"default": "json"
+			},
+			{
+				"name": "query",
+				"default": "*"
+			},
+            {
+				"name": "enableFacetFiltering",
+				"default": "true"
+			},
+            {
+				"name": "facets",
+				"default": "Category: []"
+			},
+            {
+				"name": "filters",
+				"default": "{}"
+			},
+            {
+				"name": "page",
+				"default": "1"
+			},
+                        {
+				"name": "perPage",
+				"default": "10"
+			}
+		]
+	}
+}

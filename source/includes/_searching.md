@@ -143,6 +143,8 @@ This endpoint makes a search.
 
 `POST https://api.cludo.com/api/v3/{CustomerId}/{EngineID}/search`
 
+<p><button id="search-try-it" class="try-it" data-definition="search">Try it</button></p>
+
 ### Query Parameters
 
 Parameter | Default | Description
@@ -181,7 +183,9 @@ This endpoint retrieves content for autocomplete.
 
 ### HTTP Request
 
-`GET https://api.cludo.com/api/v3/{CustomerID}/{EngineID/Autocomplete?text={query}<ID>`
+`GET https://api.cludo.com/api/v3/{CustomerID}/{EngineID}/Autocomplete?text={query}<ID>`
+
+<p><button id="search-try-it" class="try-it" data-definition="autocomplete">Try it</button></p>
 
 ### URL Parameters
 

@@ -26,9 +26,9 @@ curl -i -H "Authorization: Basic Base64(CustomerId:CustomerKey)"
 
 Cludo uses Customer keys (API keys) to allow access to the API. You can <a href="https://www.cludo.com/en/contact-us/" target="_blank">contact</a> us to get your key.
 
-Cludo expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Cludo expects the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: Basic Base64(CustomerId:CustomerKey)`
+`Authorization: Basic [Base64(CustomerId:CustomerKey)]`
 
 <aside class="notice">
 You must replace <code>CustomerId</code> with your customer id and the <code>CustomerKey</code> with your personal API key.

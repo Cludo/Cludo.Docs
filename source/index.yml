@@ -2,7 +2,7 @@ title: API Reference for Cludo Search
 
 language_tabs:
   - bash
-  - C#
+  - csharp
 
 toc_footers:
   - <a href='https://www.cludo.com/en/contact-us'>Contact Cludo for a Developer Key</a>

@@ -11,7 +11,7 @@ curl -X GET \
 > Authorization: Basic Q3VzdG9tZXJJZDpDdXN0b21lcktleQ==
 ```
 
-Cludo uses [Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication) over HTTPS for authorization. The username is your CustomerId, and the password is your CustomerKey. You can [contact](https://www.cludo.com/en/contact-us/) Cludo to get your id and key.
+Cludo uses [Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication) over HTTPS for authorization. The username is your CustomerId, and the password is your CustomerKey. You can [contact](https://www.cludo.com/en/contact/) Cludo to get your id and key.
 
 
 

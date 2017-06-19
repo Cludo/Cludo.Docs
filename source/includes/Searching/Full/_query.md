@@ -28,7 +28,7 @@ The default behavior for all searches is to match at least one term. The alterna
 * **and**
 
 <aside class="notice">
-It is possible to change the default operator behavior for all searches by [contacting](https://www.cludo.com/en/contact-us/) Cludo.
+It is possible to change the default operator behavior for all searches by [contacting](https://www.cludo.com/en/contact/) Cludo.
 </aside>
 
 #### Advanced queries 

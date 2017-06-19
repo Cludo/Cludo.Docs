@@ -1,16 +1,47 @@
 title: API Reference for Cludo Search
 
 language_tabs:
-  - bash
-  - csharp
+  - shell
+  #- csharp
+  #- json
 
 toc_footers:
   - <a href='https://www.cludo.com/en/contact-us'>Contact Cludo for a Developer Key</a>
 
 includes:
-  - main
-  - _searching
-  - _statistics
+  - _introduction
+  - _authorization
+  #- CludoJSScript/_cludojs
+  
+  - Searching/_searching
+  - Searching/Full/_intro
+  - Searching/Full/_query
+  - Searching/Full/_filtering
+  - Searching/Full/_ranking
+  - Searching/Full/_grouping
+  - Searching/Full/_rendering  
+  - Searching/Full/_response
+  - Searching/Full/_requestPropertyTable
+  - Searching/Full/_responsePropertyTable
+
+  - Searching/AutoComplete/_intro
+  - Searching/AutoComplete/_request
+  - Searching/AutoComplete/_response
+
+  - Searching/_queryStringSyntax
+  
+  - Tracking/_intro
+  - Tracking/_queries
+  - Tracking/_clicks
+
+  - Statistics/_intro
+  - Statistics/_searchCounts
+  - Statistics/_clickCounts
+  
+  - DataIndexing/_intro
+  - DataIndexing/_pushurls
+  - DataIndexing/_pushdata
+ # - DataIndexing/_delete
 
 search: true
 

@@ -23,7 +23,7 @@
 				"default": "*"
 			},
             {
-				"name": "applyMultiLevelFacets",
+				"name": "enableFacetFiltering",
 				"default": "true"
 			},
             {

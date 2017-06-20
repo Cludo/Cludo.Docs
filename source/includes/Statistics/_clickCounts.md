@@ -1,4 +1,4 @@
-<h2 id="statistics_searchcounts">Click counts</h2>
+<h2 id="statistics_clickcounts">Click counts</h2>
 
 ```shell
 curl 

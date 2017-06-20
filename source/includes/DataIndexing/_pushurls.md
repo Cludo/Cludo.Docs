@@ -15,8 +15,10 @@ curl
 -X POST \
 -I https://api.cludo.com/api/v3/{CustomerId}/content/{CrawlerId}/pushurls \
 -u {CustomerId}:{CustomerKey} \
--d https://www.cludo.com/en/features/ \
--d https://www.cludo.com/en/products/ \
+-d '[
+	    "https://www.cludo.com/en/products/",
+        "https://www.cludo.com/en/features/
+    ]'
 ```
 
 `POST https://api.cludo.com/api/v3/{CustomerId}/content/{CrawlerId}/pushurls`

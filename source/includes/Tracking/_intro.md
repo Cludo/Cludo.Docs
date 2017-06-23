@@ -1,6 +1,6 @@
 <h1 id="tracking">Tracking</h1>
 
-<aside class="info">
+<aside class="notice">
 Tracking does not require authorization.
 </aside>
 

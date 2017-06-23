@@ -33,6 +33,8 @@ curl
 -X POST \
 -I https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/autocomplete \
 -u {CustomerId}:{CustomerKey} \
+-H "Content-Type: application/json" \
+-d <JSON BODY> \
 ```
 
 `POST https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/autocomplete`

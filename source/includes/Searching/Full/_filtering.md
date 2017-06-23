@@ -1,13 +1,5 @@
 <h3 id="full-searches_filtering">Filtering</h3>
 
-```shell
--d valueFilters[Category]=["News", "Events"] \
--d valueFilters[DocumentType]=["PDF"] \
--d filters[range]=["Price", 20, 100] \
--d filters[date]=["EventDate", "20170601", "20170630"] \
--d notFilters[date]=["ProductionYear", "", "2015"] \
-```
-
 ```json
 {
   "postFilters": {

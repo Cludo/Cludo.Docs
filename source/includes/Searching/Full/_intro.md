@@ -12,8 +12,12 @@ Full searches are the standard way to search with Cludo. With these requests you
 curl 
 -x POST \
 -i https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search \
+-H "Content-Type: application/json" \
 -u {CustomerId}:{CustomerKey} \
+-d <JSON BODY> \
 ```
+> Go [here](#full-searches_request-table) to se a full example of a request body and [here](#full-searches_response) to se a response body.
+
 
 `POST https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search`
 

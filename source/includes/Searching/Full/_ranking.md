@@ -1,12 +1,5 @@
 <h3 id="full-searches_ranking">Ranking</h3>
 
-```shell
--d sort[City]=asc \
--d sort[Street]=asc \
--d sort[LastName]=desc \
--d valueBoost= \
-```
-
 ```json
 {
   "sort": {

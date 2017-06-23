@@ -1,10 +1,5 @@
 <h3 id="full-searches_query">Query</h3>
 
-```shell
--d query=My search string \
--d operator=or \
-```
-
 ```json
 {
   "query": "My search string",

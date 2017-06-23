@@ -1,11 +1,5 @@
 <h3 id="full-searches_rendering">Rendering</h3>
 
-```shell
--d responseType=JsonHtml \
--d template=MainSite Template \
--d overlay=Overlay Template V2 \
-```
-
 ```json
 {
   "responseType": "JsonHtml",

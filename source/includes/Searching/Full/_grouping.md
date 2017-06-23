@@ -1,10 +1,5 @@
 <h3 id="full-searches_grouping">Grouping</h3>
 
-```shell
--d perPage=10 \
--d page=2 \
-```
-
 ```json
 {
   "perPage": 10,

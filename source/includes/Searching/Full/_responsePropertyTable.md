@@ -67,7 +67,7 @@ Common properties for both response types are:
   "FixedQuery": "tollroad",
   "Suggestions": [
     {
-      "Test": "roadpricing",
+      "Text": "roadpricing",
     }
   ],
   "TotalDocument": 80,

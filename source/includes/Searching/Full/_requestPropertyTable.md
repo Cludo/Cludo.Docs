@@ -13,10 +13,10 @@
   "notFilters": {
     "date": ["EventDate", "20170601", "20170630"]
   },
-  "valueFilters": {
+  "postFilters": {
     "Category": ["Publications", "Events"]
   },
-  "valueFilterOperator": "or",
+  "postFilterOperator": "or",
   "enableFacetFiltering": true,
 
   "sort": {
@@ -94,18 +94,18 @@
       <td>Specify exclusion `range` and `date` filters to limit the search results.</td>
     </tr>
     <tr>
-      <td>valueFilters</td>
+      <td>postFilters</td>
       <td>no</td>
-      <td>ValueFilter Model</td>
+      <td>postFilter Model</td>
       <td></td>
       <td>Specify facet filters to limit the search results.</td>
     </tr>
     <tr>
-      <td>valueFiltersOperator</td>
+      <td>postFiltersOperator</td>
       <td>no</td>
       <td>enum</td>
       <td>and</td>
-      <td>The relation between value filters.<br>
+      <td>The relation between post filters.<br>
       Possible values are:
         <ul>
           <li>**or**</li>
@@ -118,7 +118,7 @@
       <td>no</td>
       <td>bool</td>
       <td>false</td>
-      <td>If you require value filters to be set on the HTTP response facets. 
+      <td>If you require post filters to be set on the HTTP response facets. 
       See also [Response facets](#full-searches_response_facets).</td>
     </tr>
     <!--RANKING-->

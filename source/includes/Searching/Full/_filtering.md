@@ -10,15 +10,18 @@
 
 ```json
 {
-  "valueFilters": {
+  "postFilters": {
     "Category": ["Publications", "Events"],
-    "DocumentType": ["PDF"]
+    "date": ["EventDate", "20170601", "20170630"]
   },
-  "valueFilterOperator": "or",
+  "postFilterOperator": "or",
+
   "filters": {
+    "Domain": ["http://www.mydomain.com"],
     "range": ["Price", 20, 100],
     "date": ["EventDate", "20170601", "20170630"]
   },
+
   "notFilters": {
     "date": ["ProductionYear", "", 2015]
   }, 
@@ -27,27 +30,11 @@
 ```
 
 Filtering limits search request fields to match given values, such as a price within a given range, a date within a specific month, or have a given category.
-Currently, range filters are set with the `filters` and `notFilters` property, wheras value matching is set on the `valueFilters` property. Combine all three as needed.
 
-A special property allows enabling/disabling filters on facets. Control this with the `enableFacetFiltering` property.
+Currently, three properties are used to set filters: `filters`, `notFilters` and `postFilters`. Which property you use, depends on when in the search process the filter is added:
+`filters` and `notFilters` are executed along with the query, and will affect the ranking and facets, whereas the `postFilter` only filters out not matching search results, but does not affect facets. To enable `postFilters` on facets use the `enableFacetFiltering` property.
 
-
-
-
-
-<h4 id="full-searches_filtering_valuefilters">Value filters</h4>
-
-> Examples on using the [value filter](#full-searches_filtering_valuefilters):
-
-```
-Category: ["Publications", "Events"]
-DocumentType: ["PDF"]
-```
-
-The `valueFilters` property limits a field to specific values. This is recommended when you have a limited, known amount of choices such as with *categories*, *car brands* or *file types* in which you show to the user via [facets](#full-searches_response_facets).
-The `valueFilters` type is an model, where the property names is the fields to filter on, and the values is arrays of values to match.
-
-By default, when specifying multiple value filters, then all filters must match, before a search result is valid. To change this behavior use the `valueFilterOperator` property. Its possible values are:
+By default, when specifying multiple post filters, then all filters must match, before a search result is valid. To change this behavior use the `postFilterOperator` property. Its possible values are:
 
 * **and**
 * **or**
@@ -56,16 +43,30 @@ By default, when specifying multiple value filters, then all filters must match,
 
 
 
-<h4 id="full-searches_filtering_filters">Filters (and not-filters)</h4>
+<h4 id:"full-searches_filtering_syntax">Syntax</h4>
 
-The `filters` and `notFilters` properties is used to limit a number or date-time field to be within (or outside with the not-filter) a given range. A filter set on the `filter` property must be true to include the search result, wheras a filter set on the `notFilter` property must be false to include the search result.
+When adding a filter to any of the properties, you must first decide which type of filter is neded:
 
-The `filters` and `notFilters` type is an model, where the property names is the filter type, and the values an array of three parameters specifying the field and range. There are two types of filters:
+* [values](#filtering_value)
+* [number ranges](#filtering_range)
+* [date ranges](#filtering_date)
 
-* range
-* date
 
-Both filter uses greater/less-than-or-equal-to on edge cases, and open ranges is possible by using an empty string instead of a value.
+
+
+
+<h5 id="filtering_value">Values</h5>
+
+> Examples on using a [value filter](#filtering_value):
+
+```
+"Category": ["Publications", "Events"]
+"DocumentType": ["PDF"]
+```
+
+The value filter limits a field to specific values. This is recommended when you have a limited, known amount of choices such as with *categories*, *car brands* or *file types* in which you show to the user via [facets](#full-searches_response_facets).
+
+The value filter type is simply just a range of values to match.
 
 
 
@@ -73,13 +74,13 @@ Both filter uses greater/less-than-or-equal-to on edge cases, and open ranges is
 
 <h5 id="filtering_range">Range</h5>
 
-> Examples on using the [range filter](#filtering_range):
+> Examples on using a [range filter](#filtering_range):
 
 ```
-range: ["Price", 20, 100]
-range: ["WheelRimSize", 25.5, ""]
-range: ["PoolSize", "", 2000]
-range: ["LegoPieces", "500.75", "750.57"]
+"range": ["Price", 20, 100]
+"range": ["WheelRimSize", 25.5, ""]
+"range": ["PoolSize", "", 2000]
+"range": ["LegoPieces", "500.75", "750.57"]
 ```
 
 The range filter is used to limit a number field to be within or greater- or less-than-or-equal-to than the specified value(s).
@@ -98,12 +99,12 @@ To use only one end of the range, just insert an empty string as value. If both 
 
 <h5 id="filtering_date">Date</h5>
 
-> Examples on using the [date filter](#filtering_date):
+> Examples on using a [date filter](#filtering_date):
 
 ```
-date: ["ProductionYear", "2015", "2017"]
-date: ["PremiereDate", "2017-06-01", ""]
-date: ["Exipration", "", "2020-12-24T20:00"]
+"date": ["ProductionYear", "2015", "2017"]
+"date": ["PremiereDate", "2017-06-01", ""]
+"date": ["Exipration", "", "2020-12-24T20:00"]
 ```
 
 The date filter is used to limit a date-time field to be within, before or after the specified date(e).

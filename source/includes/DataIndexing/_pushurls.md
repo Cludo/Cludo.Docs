@@ -1,4 +1,4 @@
-<h2 id="data-indexing_pushurls">URL scheduling</h2>
+<h2 id="data-indexing_pushurls">URL pushing</h2>
 
 Since full domain crawls are only made rarely (maybe once a day), then new pages to your website won't appear in search results before the domain is recrawled. If you cannot wait for a complete recrawl, then you may push the urls in question, which will be crawled within a couple of minutes.
 
@@ -8,7 +8,7 @@ Since full domain crawls are only made rarely (maybe once a day), then new pages
 
 #### HTTP request
 
-> The command below schedules urls for (re)crawling:
+> The command below pushes urls for (re)crawling:
 
 ```shell
 curl

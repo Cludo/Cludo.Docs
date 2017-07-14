@@ -1,4 +1,4 @@
-<h2 id="statistics_searchcounts">Search counts</h2>
+<h2 id="statistics_searchcounts">Search counts per day</h2>
 
 ```shell
 curl 
@@ -27,7 +27,7 @@ curl
 ]
 ```
 
-Retrieves a list of search counts for a specified period.
+Retrieves a list of search counts summed by day for a specified period.
 
 
 

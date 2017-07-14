@@ -36,6 +36,7 @@ includes:
 
   - Statistics/_intro
   - Statistics/_searchCounts
+  - Statistics/_searchCountTotal
   - Statistics/_clickCounts
   
   - DataIndexing/_intro

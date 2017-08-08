@@ -28,11 +28,13 @@
 			},
             {
 				"name": "facets",
-				"default": "Category: []"
+				"default": "{\"Category\": []}",
+				"type": "json"
 			},
             {
 				"name": "filters",
-				"default": "{}"
+				"default": "{}",
+				"type": "json"
 			},
             {
 				"name": "page",

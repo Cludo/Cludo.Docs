@@ -90,7 +90,13 @@ var TryIt = {
         for (var i = 0; i < definition.variables.length; i++) {
             var label = definition.variables[i].name;
             var value = document.getElementById("try-it-param-" + label).value;
-            body[label] = value;
+
+            if (definition.variables[i]["type"] && definition.variables[i]["type"] == "json") {
+                body[label] = JSON.parse(value);
+            }
+            else {
+                body[label] = value;
+            }            
         }
 
         var CustomerID;

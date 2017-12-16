@@ -1,49 +1,57 @@
 {
-	"autocomplete": {
-		"method": "GET",
-		"endpoint": "https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/Autocomplete?text={Query}",
-		"coreVariables": [{
-			"name": "CustomerKey"
-		}],
-		"variables": [
-
-		]
+	"apiLocations": {
+		"EU": "https://api.cludo.com/api/v3/",
+		"US": "https://api-us1.cludo.com/api/v3/"
 	},
-	"search": {
-		"endpoint": "https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search",
-		"coreVariables": [{
-			"name": "CustomerKey"
-		}],
-		"variables": [{
-				"name": "ResponseType",
-				"default": "json"
-			},
-			{
-				"name": "query",
-				"default": "*"
-			},
-            {
-				"name": "enableFacetFiltering",
-				"default": "true"
-			},
-            {
-				"name": "facets",
-				"default": "{\"Category\": []}",
-				"type": "json"
-			},
-            {
-				"name": "filters",
-				"default": "{}",
-				"type": "json"
-			},
-            {
-				"name": "page",
-				"default": "1"
-			},
-                        {
-				"name": "perPage",
-				"default": "10"
-			}
-		]
-	}
+	"endpoints":[
+		{
+			"name": "autocomplete",
+			"method": "GET",
+			"endpoint": "{CustomerId}/{EngineId}/Autocomplete?text={Query}",
+			"coreVariables": [{
+				"name": "CustomerKey"
+			}],
+			"variables": [
+
+			]
+		},
+		{
+			"name": "search",
+			"endpoint": "{CustomerId}/{EngineId}/search",
+			"coreVariables": [{
+				"name": "CustomerKey"
+			}],
+			"variables": [{
+					"name": "ResponseType",
+					"default": "json"
+				},
+				{
+					"name": "query",
+					"default": "*"
+				},
+				{
+					"name": "enableFacetFiltering",
+					"default": "true"
+				},
+				{
+					"name": "facets",
+					"default": "{\"Category\": []}",
+					"type": "json"
+				},
+				{
+					"name": "filters",
+					"default": "{}",
+					"type": "json"
+				},
+				{
+					"name": "page",
+					"default": "1"
+				},
+							{
+					"name": "perPage",
+					"default": "10"
+				}
+			]
+		}
+	]
 }

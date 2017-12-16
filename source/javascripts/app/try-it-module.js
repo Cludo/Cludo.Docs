@@ -8,6 +8,16 @@ var TryIt = {
     dragEvent: null,
     lastY: null,
 
+    getDefinition: function(key) {
+        var definition;
+        for (var i = 0; i < tryItDefinitions.endpoints.length; i++) {
+            if (tryItDefinitions.endpoints[i].name == key) {
+                definition = tryItDefinitions.endpoints[i];
+            }
+        }
+        return definition;
+    },
+
     init: function () {
         var tryItElements = document.getElementsByClassName("try-it");
         TRY_IT_PANE = document.getElementById("try-it-pane");
@@ -17,7 +27,7 @@ var TryIt = {
             tryItElement.addEventListener("click", function() {
                 var key = this.dataset.definition;
                 TryIt.activeKey = key;
-                var definition = tryItDefinitions[key];
+                var definition = TryIt.getDefinition(key);
                 
                 // POPULATE REQUEST
 
@@ -83,7 +93,9 @@ var TryIt = {
         e.preventDefault();
 
         var key = TryIt.activeKey;
-        var definition = tryItDefinitions[key];
+        var definition = TryIt.getDefinition(key);
+
+        var apiPath;
         var url = definition.endpoint;
         var body = {};
         
@@ -135,6 +147,15 @@ var TryIt = {
             document.getElementById("response-code").classList.add("loaded");
         }
         else {
+            if (CustomerID >= 10000000) {
+                //na
+                url = tryItDefinitions.apiLocations.US + url;
+            }
+            else {
+                //eu
+                url = tryItDefinitions.apiLocations.EU + url;
+            }
+
             TryIt.makeRequest(url, body, CustomerID, CustomerKey, method);
 
             // activate loader

@@ -25,7 +25,7 @@ When making a search, you must set a authorization header with the `SiteKey` aut
 
 This authorization type consists of a Base64-encoding of your *CustomerId*, the *SiteId* to access, and the *SiteKey* separated by `:`.
 
-When a search engine is for public domain, the *SiteKey* is not validated, and should just be set to some random string of at least one character. Only non-public search engines which is used for restricted domains, Intranet sites or other solutions which need limited access, need the SiteKey. 
+SiteKey is only used for public access to search content. For intranet and secure solutions, use *Basic authorization*.
 
 If you wish to create a non-public search engine, please [contact](https://www.cludo.com/en/contact/) Cludo for more information on the setup procedure.
 

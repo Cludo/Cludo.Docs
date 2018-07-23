@@ -30,9 +30,39 @@ CrawlerId | The id of the crawler to delete the results from
         "https://www.cludo.com/some-page/": "PageContent"
     },
     {
+        "some-string": "PageContent"
+    },
+    {
         "https://www.cludo.com/some-file.pdf": "FileContent"
     }
 ]
 ```
 
-The body consists of an array of key/value pairs. The key is the ID of the resource and the value is the type of the resource. The ID of both page and file resources is the URL.
+The body consists of an array of key/value pairs. The key is the ID of the resource and the value is the type of the resource.
+
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Type</th>
+<th>Valid values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resource ID</td>
+<td>String</td>
+<td>Any. The ID of page and file resources will be their URL by default.</td>
+</tr>
+<tr>
+<td>Resource Type</td>
+<td>String</td>
+<td>
+<ul>
+<li>FileContent</li>
+<li>PageContent</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>

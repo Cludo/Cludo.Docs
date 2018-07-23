@@ -27,12 +27,12 @@ CrawlerId | The id of the crawler to delete the results from
 ```json
 [
     {
-        "123456": "PageContent"
+        "https://www.cludo.com/some-page/": "PageContent"
     },
     {
-        "123456": "FileContent"
+        "https://www.cludo.com/some-file.pdf": "FileContent"
     }
 ]
 ```
 
-The body consists of an array of key/value pairs. The key is the ID of the resource and the value is the type of the resource.
+The body consists of an array of key/value pairs. The key is the ID of the resource and the value is the type of the resource. The ID of both page and file resources is the URL.

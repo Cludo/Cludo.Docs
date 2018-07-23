@@ -1,10 +1,6 @@
 <h2 id="data-indexing_delete">Deleting data</h2>
 
-If a page or file is removed from your website, you then no longer wish for it to appear in searchresults, since it will lead to dead links. Dead search results will be removed upon a recrawl, but if it cannot wait, then use this endpoint.
-
-
-
-
+If a page or file is removed from your website, you don't want for it to appear in your search results anymore, as it will lead to dead links. It will be removed upon a recrawl regardless, but if it can't wait, you can use this endpoint to manually delete it.
 
 #### HTTP request
 
@@ -24,5 +20,19 @@ Parameter | Description
 CustomerId | Your customer id
 CrawlerId | The id of the crawler to delete the results from
 
+#### HTTP body
 
+> An example of a HTTP body for a data delete request:
 
+```json
+[
+    {
+        "123456": "PageContent"
+    },
+    {
+        "123456": "FileContent"
+    }
+]
+```
+
+The body consists of an array of key/value pairs. The key is the ID of the resource and the value is the type of the resource.

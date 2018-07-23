@@ -42,7 +42,7 @@ includes:
   - DataIndexing/_intro
   - DataIndexing/_pushurls
   - DataIndexing/_pushdata
- # - DataIndexing/_delete
+  - DataIndexing/_delete
 
 search: true
 

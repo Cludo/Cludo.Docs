@@ -1,4 +1,4 @@
-<h1 id="data-indexing">Data&nbsp;indexing hello world</h1>
+<h1 id="data-indexing">Data&nbsp;indexing</h1>
 
 <aside class="warning">
 Data indexing requires [Basic authorization](#authorization_basic).

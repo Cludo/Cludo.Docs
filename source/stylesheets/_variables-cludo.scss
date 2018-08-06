@@ -30,16 +30,22 @@ $examples-bg: $charcoal;
 $code-bg: #292929;
 $code-annotation-bg: #1c1c1c;
 $nav-subitem-bg: #262626;
-$nav-active-bg: #824FD3;
+$nav-active-bg: linear-gradient(360deg, #8532C5, rgba(183, 63, 160, 0.75));
+$nav-active-bg2: #8532C5;
 $lang-select-border: #000;
 $lang-select-bg: #222;
 $lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111; // color of language tab bg when mouse is pressed
 $main-bg: #eaf2f6;
-$aside-notice-bg: #8fbcd4;
-$aside-warning-bg: #c97a7e;
-$aside-success-bg: #6ac174;
-$search-notice-bg: #c97a7e;
+
+/*COLOR for aside notices*/
+$aside-notice-bg: #8fbcd459;
+$aside-notice-icon: #8fbcd4;
+$aside-warning-bg: #c97a7e59;
+$aside-warning-icon: #c97a7e;
+$aside-success-bg: #6ac17459;
+$aside-success-icon: #6ac174;
+$aside-text: #e9e9e9; 
 
 
 // TEXT COLORS

@@ -1,9 +1,12 @@
 <h2 id="tools_quicklinks">Quicklinks</h2>
 
-Quicklinks are useful if you want to redirect users to a specific url when they enter a search.
+Quicklinks are useful if you want to redirect users to a specific url when they enter a pre-defined search term.
 
 In this section we explain how to POST, GET & DELETE quicklinks.
 
+<aside class="notice">
+Read more about Quicklinks <a href="https://cludo.zendesk.com/hc/en-us/articles/115002466252-Quicklinks">here</a>
+</aside>
 
 
 #### HTTP requests

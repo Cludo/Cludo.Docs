@@ -39,10 +39,14 @@ includes:
   - Statistics/_searchCountTotal
   - Statistics/_clickCounts
   
+  - Tools/_intro
+  - Tools/_quicklinks
+  
   - DataIndexing/_intro
   - DataIndexing/_pushurls
   - DataIndexing/_pushdata
   - DataIndexing/_delete
+
 
 search: true
 

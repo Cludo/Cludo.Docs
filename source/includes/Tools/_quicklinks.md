@@ -5,7 +5,7 @@ Quicklinks are useful if you want to redirect users to a specific url when they 
 In this section we explain how to POST, GET & DELETE quicklinks.
 
 <aside class="notice">
-Read more about Quicklinks <a href="https://cludo.zendesk.com/hc/en-us/articles/115002466252-Quicklinks">here</a>
+Read more about Quicklinks <a href="https://cludo.zendesk.com/hc/en-us/articles/115002466252-Quicklinks" target="_blank">here</a>
 </aside>
 
 

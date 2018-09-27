@@ -1,17 +1,19 @@
 <h2 id="tools_quicklinks">Quicklinks</h2>
 
-Quicklinks are useful if you want to redirect users to a specific url when they enter a pre-defined search term.
-
-In this section we explain how to POST, GET & DELETE quicklinks.
+Quicklinks are useful if you want to redirect users to a specific url when a pre-defined term is entered.
 
 <aside class="notice">
 Read more about Quicklinks <a href="https://cludo.zendesk.com/hc/en-us/articles/115002466252-Quicklinks" target="_blank">here</a>
 </aside>
 
 
+In this section we explain how to GET, POST & DELETE quicklinks.
+
+
+
 #### HTTP requests
 
-> The command below creates a quicklink on a specific engine
+> The command below creates adds a quicklink to a specific engine
 
 ```shell
 curl
@@ -41,7 +43,7 @@ name | Word to trigger the quicklink
 url | The url to link to from the terms
 
 
-> This command gets quicklink data from a specific engine
+> This command gets quicklink data from an engine
 
 ```shell
 curl
@@ -66,7 +68,7 @@ curl
 ]
 ```
 
-> This command deletes quicklink data from a specific engine
+> This command deletes quicklink data from an engine
 
 ```shell
 curl

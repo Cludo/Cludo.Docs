@@ -1,12 +1,7 @@
 <h1 id="tools">Tools</h1>
 
-<aside class="warning">
-Tools requires [basic authorization](#authorization_basic).
-</aside>
+<aside class="notice">[Basic authorization](#authorization_basic) is required for all endpoints within this section.</aside>
 
+Cludo provides you with a multitude of tools that can be used to provide your visitors with a great user experience.
 
-Cludo allows users to to use various tools in order to create a better user experience, in this part we explain the different tools available and how to apply them.
-
-The following tools are currently available:
-
-* [quicklinks](#tools_quicklinks)
+* [Quicklinks](#tools_quicklinks)

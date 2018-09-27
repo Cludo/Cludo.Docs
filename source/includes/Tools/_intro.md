@@ -1,4 +1,4 @@
-<h1 id="Tools">Tools</h1>
+<h1 id="tools">Tools</h1>
 
 <aside class="warning">
 Tools requires [basic authorization](#authorization_basic).
@@ -10,4 +10,3 @@ Cludo allows users to to use various tools in order to create a better user expe
 The following tools are currently available:
 
 * [quicklinks](#tools_quicklinks)
-

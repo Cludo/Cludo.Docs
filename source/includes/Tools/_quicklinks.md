@@ -121,6 +121,7 @@ Create a quicklink.
 $ curl "https://api.cludo.com/api/quicklinks"
     -X POST
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
+    -H "Content-Type: application/json"
     -d '{
            "websiteId": 7578030,
            "url": "https://www.cludo.com/contact/",
@@ -154,6 +155,7 @@ Update a specific quicklink.
 $ curl "https://api.cludo.com/api/quicklinks/5807805"
     -X PUT
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
+    -H "Content-Type: application/json"
     -d '{
            "websiteId": 7578030,
            "url": "https://www.cludo.com/contact/",
@@ -169,6 +171,7 @@ $ curl "https://api.cludo.com/api/quicklinks/5807805"
 $ curl "https://api.cludo.com/api/quicklinks"
     -X POST
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
+    -H "Content-Type: application/json"
     -d '{
            "id": 5807805,
            "websiteId": 7578030,

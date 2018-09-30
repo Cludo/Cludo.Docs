@@ -10,9 +10,12 @@ toc_footers:
 
 includes:
   - _introduction
-  - _authorization
   #- CludoJSScript/_cludojs
-  
+
+  - Authorization/_intro
+  - Authorization/_search
+  - Authorization/_basic
+
   - Searching/_searching
   - Searching/Full/_intro
   - Searching/Full/_query

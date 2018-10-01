@@ -14,5 +14,7 @@
         <file src="robots.txt" target="" />
         <file src="index.html" target="" />
         <file src="pub\**" target="pub" />
+        <file src="source\fonts\**" target="source\fonts" />
+        <file src="source\images\**" target="source\images" />
     </files>
 </package>

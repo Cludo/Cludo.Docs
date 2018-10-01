@@ -1,4 +1,5 @@
 *.txt
+!robots.txt
 compare.js
 doit.sh
 source/layouts/layout*.erb

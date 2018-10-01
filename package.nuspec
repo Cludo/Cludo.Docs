@@ -11,6 +11,7 @@
         <copyright>Copyright Cludo 2018</copyright>
     </metadata>
     <files>
+        <file src="robots.txt" target="" />
         <file src="index.html" target="" />
         <file src="pub\**" target="pub" />
     </files>

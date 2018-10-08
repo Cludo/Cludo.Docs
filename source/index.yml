@@ -6,7 +6,9 @@ language_tabs:
   #- json
 
 toc_footers:
-  - <a href='https://my.cludo.com/#/account/settings/apisettings'>Find your Developer Key</a>
+  - <h3>Need help?</h3>
+  - <a href='https://my.cludo.com/#/account/settings/apisettings'>Find your API Key</a>
+  - <a href='https://www.cludo.com/contact/'>Contact us</a>
 
 includes:
   - _introduction

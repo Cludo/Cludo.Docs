@@ -41,8 +41,8 @@ $main-bg: #eaf2f6;
 /*COLOR for aside notices*/
 $aside-notice-bg: #8fbcd459;
 $aside-notice-icon: #8fbcd4;
-$aside-warning-bg: #c97a7e59;
-$aside-warning-icon: #c97a7e;
+$aside-warning-bg: #d4b65259;
+$aside-warning-icon: #d4b652;
 $aside-success-bg: #6ac17459;
 $aside-success-icon: #6ac174;
 $aside-text: #e9e9e9; 
@@ -96,6 +96,7 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 ////////////////////
 $nav-active-shadow: #000;
 $nav-footer-border-color: #666;
+$nav-footer-color: #8b8b8b; // navigation footer color
 $nav-embossed-border-top: #000;
 $nav-embossed-border-bottom: #939393;
 $main-embossed-text-shadow: 0px 1px 0px #fff;

@@ -1,7 +1,7 @@
 <h1 id="data-indexing">Data&nbsp;indexing</h1>
 
 <aside class="warning">
-Data indexing requires [Basic authorization](#authorization_basic).
+Data indexing requires [basic authentication](#authentication_basic).
 </aside>
 
 

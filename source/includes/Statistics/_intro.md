@@ -1,7 +1,7 @@
 <h1 id="statistics">Statistics</h1>
 
 <aside class="warning">
-Statistics requires [basic authorization](#authorization_basic).
+Statistics requires [basic authentication](#authentication_basic).
 </aside>
 
 Cludo have several API endpoints related to pushing and retrieving statistics of searches.

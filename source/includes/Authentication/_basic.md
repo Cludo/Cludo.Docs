@@ -1,4 +1,4 @@
-<h2 id="authorization_basic">Basic authorization</h2>
+<h2 id="authentication_basic">Basic authentication</h2>
 
 ```shell
 curl -X GET \

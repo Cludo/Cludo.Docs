@@ -1,4 +1,4 @@
-<h2 id="authorization_search">Search authorization</h2>
+<h2 id="authentication_search">Search authentication</h2>
 
 ```shell
 curl -X GET \
@@ -17,6 +17,6 @@ When making a search, you must set a authorization header with the `SiteKey` aut
 
 This authorization type consists of a Base64-encoding of your *CustomerId*, the *SiteId* to access, and the *SiteKey* separated by `:`.
 
-SiteKey is only used for public access to search content. For intranet and secure solutions, use *Basic authorization*.
+SiteKey is only used for public access to search content. For intranet and secure solutions, use *Basic authentication*.
 
 If you wish to create a non-public search engine, please [contact](https://www.cludo.com/en/contact/) Cludo for more information on the setup procedure.

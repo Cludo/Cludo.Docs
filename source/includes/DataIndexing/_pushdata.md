@@ -14,7 +14,7 @@ If you don't have any crawlers setup, or know exactly how your data is stored, y
 curl
 -X POST \
 -I https://api.cludo.com/api/v3/{CustomerId}/content/{CrawlerId}/push \
--u {CustomerId}:{CustomerKey} \
+-u {CustomerId}:{API_Key} \
 ```
 
 `POST https://api.cludo.com/api/v3/{CustomerId}/content/{CrawlerId}/push`

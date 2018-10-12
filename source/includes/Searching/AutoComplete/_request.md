@@ -8,7 +8,7 @@ There are two ways you may make a Autocomplete request. `GET` or `POST`.
 curl 
 -X GET \
 -I -G https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/autocomplete \
--u {CustomerId}:{CustomerKey} \
+-u {CustomerId}:{API_Key} \
 -d query={query} \
 -d responsetype={responseType} \
 -d filters={filters} \
@@ -32,7 +32,7 @@ EngineId | The id of the search engine to use for the search
 curl 
 -X POST \
 -I https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/autocomplete \
--u {CustomerId}:{CustomerKey} \
+-u {CustomerId}:{API_Key} \
 -H "Content-Type: application/json" \
 -d <JSON BODY> \
 ```

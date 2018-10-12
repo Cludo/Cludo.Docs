@@ -230,6 +230,7 @@ button {
     li,a {
       color: $nav-text;
       text-decoration: none;
+      color: $nav-footer-color;
     }
 
     a:hover {
@@ -237,9 +238,13 @@ button {
     }
 
     li {
-      font-size: 0.8em;
+      font-size: 0.85em;
       line-height: 1.7;
       text-decoration: none;
+    }
+    h3{
+      margin: 5px;
+      margin-left: 0;
     }
   }
 
@@ -568,7 +573,7 @@ button {
     background-color: $code-bg;
     color: #fff;
 
-    padding: 2em $main-padding;
+    padding: 2em 0;
     margin: 0;
     width: $examples-width;
 
@@ -590,6 +595,7 @@ button {
   }
 
   pre {
+    padding-left: 28px;
     @extend %code-font;
   }
 
@@ -598,9 +604,8 @@ button {
       background-color: $code-annotation-bg;
       border-radius: 5px;
       padding: $code-annotation-padding;
+      padding-left: 28px;
       color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
     }
   }
 }

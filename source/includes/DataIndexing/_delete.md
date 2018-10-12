@@ -10,7 +10,7 @@ If a page or file is removed from your website, you don't want for it to appear 
 curl
 -X POST \
 -I https://api.cludo.com/api/v3/{CustomerId}/content/{CrawlerId}/delete \
--u {CustomerId}:{CustomerKey} \
+-u {CustomerId}:{API_Key} \
 ```
 
 `POST https://api.cludo.com/api/v3/{CustomerId}/content/{CrawlerId}/delete`

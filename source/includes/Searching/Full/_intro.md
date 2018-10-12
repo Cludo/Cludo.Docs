@@ -1,6 +1,6 @@
 <h2 id="full-searches">Full&nbsp;searches</h2>
 
-Full searches are the standard way to search with Cludo. With these requests you have a great varity of functions available to express your search. To read more about the HTTP response, click [here](#full-searches_response). 
+Full searches is the standard way to search with Cludo. With these requests you have a great variety of functions available to express your search. To read more about the HTTP response, click [here](#full-searches_response). 
 
 
 
@@ -13,7 +13,7 @@ curl
 -x POST \
 -i https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search \
 -H "Content-Type: application/json" \
--u {CustomerId}:{CustomerKey} \
+-u {CustomerId}:{API_Key} \
 -d <JSON BODY> \
 ```
 > Go [here](#full-searches_request-table) to se a full example of a request body and [here](#full-searches_response) to se a response body.

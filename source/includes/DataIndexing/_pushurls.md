@@ -14,7 +14,7 @@ Since full domain crawls are only made rarely (maybe once a day), then new pages
 curl
 -X POST \
 -I https://api.cludo.com/api/v3/{CustomerId}/content/{CrawlerId}/pushurls \
--u {CustomerId}:{CustomerKey} \
+-u {CustomerId}:{API_Key} \
 -d '[
 	    "https://www.cludo.com/en/products/",
         "https://www.cludo.com/en/features/

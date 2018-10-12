@@ -1,7 +1,7 @@
 <h1 id="tracking">Tracking</h1>
 
 <aside class="notice">
-Tracking does not require authorization.
+Tracking does not require authentication.
 </aside>
 
 Tracking is important, otherwise it is hard to adapt your search to fit your users needs, therefore Cludo provides tracking of searches and clicked search results.

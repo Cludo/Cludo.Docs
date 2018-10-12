@@ -14,9 +14,9 @@ includes:
   - _introduction
   #- CludoJSScript/_cludojs
 
-  - Authorization/_intro
-  - Authorization/_search
-  - Authorization/_basic
+  - Authentication/_intro
+  - Authentication/_search
+  - Authentication/_basic
 
   - Searching/_searching
   - Searching/Full/_intro

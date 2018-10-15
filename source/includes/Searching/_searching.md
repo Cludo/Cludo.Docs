@@ -6,5 +6,5 @@ Currently Cludo offers two types of searches:
 * [Auto complete searches](#autocomplete-searches)
 
 <aside class="warning">
-Searching requires [search authentication](#authentication_search).
+Searching requires [site key authentication](#authentication_siteKey).
 </aside>

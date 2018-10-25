@@ -11,7 +11,8 @@ toc_footers:
   - <a href='https://www.cludo.com/contact/' target='_blank'>Contact us</a>
 
 includes:
-  - _introduction
+  - Introduction/_intro
+  - Introduction/_region
   #- CludoJSScript/_cludojs
 
   - Authentication/_intro

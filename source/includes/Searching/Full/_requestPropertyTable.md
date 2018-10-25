@@ -18,6 +18,7 @@
   },
   "postFilterOperator": "or",
   "enableFacetFiltering": true,
+  "enableRelatedSearches": true,
 
   "sort": {
     "City": "asc"
@@ -181,6 +182,17 @@
       <td>string</td>
       <td></td>
       <td>The name of the overlay template to use for rendering JsonHTML.</td>
+    </tr>
+	<!--Not Available For Everybody-->
+    <tr>
+      <td colspan="5" style="text-align:center">**[Not Available For Everybody](#full-searches_relatedSearches)**</td>
+    </tr>
+	<tr>
+      <td>enableRelatedSearches*</td>
+      <td>no</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>If you want to be able to get Related Searches for specific search term.</td>
     </tr>
   </tbody>
 </table>

@@ -25,6 +25,7 @@ includes:
   - Searching/Full/_ranking
   - Searching/Full/_grouping
   - Searching/Full/_rendering  
+  - Searching/Full/_relatedSearches  
   - Searching/Full/_response
   - Searching/Full/_requestPropertyTable
   - Searching/Full/_responsePropertyTable

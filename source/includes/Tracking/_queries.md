@@ -19,7 +19,8 @@ $ curl "https://api.cludo.com/api/v3/4545589/7578030/search/pushstat/querylog"
             "hn": "www.cludo.com",
             "rc": "7",
             "fquery": "",
-            "ban": "0",
+            "ban": "2",
+            "bnrs": "2673284,3933858",
             "rt": "34",
             "ql": "",
             "qid": "be74e31601814d8fb90750e5a7082916",
@@ -29,7 +30,7 @@ $ curl "https://api.cludo.com/api/v3/4545589/7578030/search/pushstat/querylog"
 ```
 
 ```shell
-$ curl "https://api.cludo.com/api/v3/4545589/7578030/search/pushstat/querylog?sz=4096x2160&ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F70.0.3538.77%20Safari%2F537.36&refurl=https%3A%2F%2Fwww.cludo.com%2Fsite-search-features%2F&refpt=Customizable%2C%20whitebox%20AI%20driven%20site%20search%20built%20for%20marketers%20-%20Cludo&sw=government&brl=en-US&pn=1&hn=www.cludo.com&rc=7&fquery=&ban=0&rt=34&ql=&qid=be74e31601814d8fb90750e5a7082916&sid=&qsid=1696ba3d02e74658a3673b509435b082"
+$ curl "https://api.cludo.com/api/v3/4545589/7578030/search/pushstat/querylog?sz=4096x2160&ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F70.0.3538.77%20Safari%2F537.36&refurl=https%3A%2F%2Fwww.cludo.com%2Fsite-search-features%2F&refpt=Customizable%2C%20whitebox%20AI%20driven%20site%20search%20built%20for%20marketers%20-%20Cludo&sw=government&brl=en-US&pn=1&hn=www.cludo.com&rc=7&fquery=&ban=2&bnrs=2673284%2C3933858&rt=34&ql=&qid=be74e31601814d8fb90750e5a7082916&sid=&qsid=1696ba3d02e74658a3673b509435b082"
     -X POST
 ```
 
@@ -59,6 +60,7 @@ hn | Host name | string | The host name of the page the query originated from
 rc | Result count | string | The amount of results for the query
 fquery | Fixed query | string | The actual performed query, if the original query was intercepted and adjusted by Cludo (e.g. spelling mistakes)
 ban | Banners count | string | The number of banners shown
+bnrs | Banner IDs | string | The IDs of the banners shown (comma separated)
 rt | Response time | string | The time it took to perform the query
 ql | Quicklink ID | string | The quicklink ID, if a quicklink redirection occurs
 qid | Query ID | string | A unique string used as the ID of the query

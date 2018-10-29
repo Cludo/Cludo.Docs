@@ -2,22 +2,18 @@
 
 When self-implementing Cludo through our API it is important to know what region you are located in.
 
-At Cludo we have two API's one for US Customers and one for EU Customers. 
+At Cludo we have two API's one for North American customers and one for all other customers. 
 
-<aside class="notice">
-If you are in doubt of what region you are located in you can check your customerId. If it's an 8-digit number you are located on the US API.
-</aside>
+<h5>North American customers:</h5>
 
+`https://api-us1.cludo.com/`
 
-<h5>EU Customers:</h5>
+<h5>All other customers:</h5>
 
-`https://api.cludo.com/api/v3/`
+`https://api.cludo.com/`
 
-<h5>US Customers:</h5>
-
-`https://api-us1.cludo.com/api/v3/`
 
 
 <aside class="notice">
-To see an example of the two different HTTP request, see <a href="#full-searches">full searches.</a>
+If you are in doubt of what API you should call, feel free to <a href="https://www.cludo.com/contact/" target="_blank">contact us</a>.
 </aside>

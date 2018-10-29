@@ -18,17 +18,9 @@ curl
 ```
 > Go [here](#full-searches_request-table) to se a full example of a request body and [here](#full-searches_response) to se a response body.
 
-<h5>EU Customers:</h5>
-
 `POST https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search`
 
-<h5>US Customers:</h5>
 
-`POST https://api-us1.cludo.com/api/v3/{CustomerId}/{EngineId}/search`
-
-<aside class="warning">
-If your customerId is a 8-digit number all your HTTP requests should start with `https://api-us1.cludo.com/api/v3/`. Feel free to <a href="https://www.cludo.com/contact/" target="_blank">contact us</a> if you have any questions!
-</aside>
 
 
 Parameter | Description

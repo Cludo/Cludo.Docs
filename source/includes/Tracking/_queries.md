@@ -1,61 +1,68 @@
 <h2 id="tracking_queries">Queries</h2>
 
-> The command below tracks a user search. This is only necessary if you don't use the CludoJS script.
+Record a search query.
+
+<h4>Request</h4>
 
 ```shell
-curl -X POST \
-    https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search/pushstat/querylog \
-    -H 'content-type: application/json' \
+$ curl "https://api.cludo.com/api/v3/4545589/7578030/search/pushstat/querylog"
+    -X POST
+    -H "Content-Type: application/json"
     -d '{
-        "sz" : "1440x900",
-        "ua" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36",
-        "refurl" : "https://www.mysite.com/article/monkeys.html",
-        "refpt" : "Article about monkeys | My Site",
-        "sw" : "robots",
-        "brl" : "en-US",
-        "pn" : "1",
-        "hn" : "www.mysite.com",
-        "rc" : "29",
-        "fquery" : "",
-        "ban" : "0",
-        "rt" : "13",
-        "ql" : "",
-        "qid" : "{QueryId}",
-        "sid" : "{SessionId}",
-        "qsid" : "{QuerySessionId}"
-    }' \
+            "sz": "4096x2160",
+            "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
+            "refurl": "https://www.cludo.com/site-search-features/",
+            "refpt": "Customizable, whitebox AI driven site search built for marketers - Cludo",
+            "sw": "government",
+            "brl": "en-US",
+            "pn": "1",
+            "hn": "www.cludo.com",
+            "rc": "7",
+            "fquery": "",
+            "ban": "2",
+            "bnrs": "2673284,3933858",
+            "rt": "34",
+            "ql": "",
+            "qid": "be74e31601814d8fb90750e5a7082916",
+            "sid": "",
+            "qsid": "1696ba3d02e74658a3673b509435b082"
+        }'
 ```
 
-Use this endpoint to track search statistics.
+```shell
+$ curl "https://api.cludo.com/api/v3/4545589/7578030/search/pushstat/querylog?sz=4096x2160&ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F70.0.3538.77%20Safari%2F537.36&refurl=https%3A%2F%2Fwww.cludo.com%2Fsite-search-features%2F&refpt=Customizable%2C%20whitebox%20AI%20driven%20site%20search%20built%20for%20marketers%20-%20Cludo&sw=government&brl=en-US&pn=1&hn=www.cludo.com&rc=7&fquery=&ban=2&bnrs=2673284%2C3933858&rt=34&ql=&qid=be74e31601814d8fb90750e5a7082916&sid=&qsid=1696ba3d02e74658a3673b509435b082"
+    -X POST
+```
 
-#### HTTP Request
+`POST https://api.cludo.com/api/v3/<Customer ID>/<Engine ID>/search/pushstat/querylog`
 
-`POST https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search/pushstat/querylog`
+`POST https://api.cludo.com/api/v3/<Customer ID>/<Engine ID>/search/pushstat/querylog?<Query parameters>`
 
-Parameter | Description
------ | ------
-CustomerId | Your customer id
-EngineId | The id of the search engine to use for the search
+<h5>URL parameters</h5>
 
-#### HTTP Payload
+Parameter | Type | Description
+--- | --- | ---
+Customer ID | int | Your ID
+Engine ID | int | The ID of the specific engine that was used for this query
 
-The payload of the query log request must be in `json` format. The properties are described below.
+<h5>Body/Query parameters</h5>
 
-Parameter | Abbreviation&nbsp;for | Description
------ | ------ | ------
-sz          | Screen size           | The resolution of the users screen<br>E.g.<br>*2560x1440*
-ua          | User agent            | The users user agent<br>E.g.<br>*Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36*
-refurl      | Referal url           | The URL of the page the user was at when doing the initial search.<br>E.g.<br>*https://www.mysite.com/article/monkeys.html*
-refpt       | Referal page title    | The title of the page the user was at when doing the intial search<br>E.g.<br>*Article about monkeys &#124; My Site*
-sw          | search word           | The sentence searched for
-brl         | browser language      | The browser language
-pn          | Page number           | The page number requested in the search
-hn          | Host name             | The host name of the page where the search is done at.<br>E.g.<br>*www.mysite.com*
-rc          | Result count          | How many searches were returned to the user.<br>E.g.<br>*5*
-fquery      | Fixed Query           | If we catch spelling mistakes the fixed query will be set to the fixed spelling mistakes.<br>E.g.<br>If the search word is *carz*, the fixed query would be *cars*
-ban         | Banners               | The number of banners shown
-rt          | Response time         | How fast was the search done
-ql          | Quicklink             | If a Quicklink redirection occur, then set the ql parameter with the quicklink id, so we can track it
-qid         | Query id              | A unique string used as the id of the query
-sid         | Session id            | A unique string used as the id of the user sesson
-qsid        | Query session id      | A unique string used as the id of the query within the user session
+Key | Represents | Type | Description
+--- | --- | --- | ---
+sz | Screen size | string | The pixel resolution of the visitor's screen
+ua | User agent | string | The visitor's user agent string
+refurl | Referal url | string | The URL of the page the query originated from
+refpt | Referal page title | string | The title of the page the query originated from
+sw | Query | string | The query
+brl | Browser language | string | The language of the visitor's browser
+pn | Page number | string | The page number requested in the search
+hn | Host name | string | The host name of the page the query originated from
+rc | Result count | string | The amount of results for the query
+fquery | Fixed query | string | The actual performed query, if the original query was intercepted and adjusted by Cludo (e.g. spelling mistakes)
+ban | Banners count | string | The number of banners shown
+bnrs | Banner IDs | string | The IDs of the banners shown (comma separated)
+rt | Response time | string | The time it took to perform the query
+ql | Quicklink ID | string | The quicklink ID, if a quicklink redirection occurs
+qid | Query ID | string | A unique string used as the ID of the query
+sid | Visitor session ID | string | A unique string used as the ID of the visitor session
+qsid | Query session ID | string | A unique string used as the ID of the query session

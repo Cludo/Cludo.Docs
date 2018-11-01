@@ -18,6 +18,7 @@
   },
   "postFilterOperator": "or",
   "enableFacetFiltering": true,
+  "enableRelatedSearches": true,
 
   "sort": {
     "City": "asc"
@@ -39,6 +40,8 @@
   "overlay": "Overlay Template V2"
 }
 ```
+
+<aside class="notice">Features marked with a * denotes that it's not included with all subscription levels. If you want to know more, please <a href="https://www.cludo.com/contact/" target="_blank">contact us</a>.</aside>
 
 <table>
   <thead>
@@ -181,6 +184,17 @@
       <td>string</td>
       <td></td>
       <td>The name of the overlay template to use for rendering JsonHTML.</td>
+    </tr>
+	  <!-- RELATED SEARCHES -->
+    <tr>
+      <td colspan="5" style="text-align:center">**[Related Searches*](#full-searches_relatedSearches)**</td>
+    </tr>
+	  <tr>
+      <td>enableRelatedSearches</td>
+      <td>no</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>If you want to also get related searches for the specific search term.</td>
     </tr>
   </tbody>
 </table>

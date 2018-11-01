@@ -1,4 +1,4 @@
-<h3 id="full-searches_relatedSearches">Related Searches*</h3>
+<h3 id="full-searches_relatedSearches">Related Searches</h3>
 
 ```json
 {
@@ -6,10 +6,10 @@
 }
 ```
 
-**RelatedSearches** are a way to conveniently suggest possible search terms based on their usages by other users and at the same time, close to the one that the user has entered. 
-<br>
 <aside class="notice">
-The feature is not available to everybody. If you don't have it, please [contact us](https://www.cludo.com/contact/).
+This feature might not be part of your subscription. If you want to know more, please <a href="https://www.cludo.com/contact/" target="_blank">contact us</a>.
 </aside>
 
-Depending on the [responseType](#full-searches_rendering) you will either get HTML string in the **RelatedSearchesResult** property in the overal search response or JSON object named **RelatedSearchDocuments**.
+Related searches is a feature that can be used to conveniently suggest possible search terms based on their usages by other users and, at the same time, close to the one that the user has entered.
+
+To enable this feature, use the `enableRelatedSearches` property.

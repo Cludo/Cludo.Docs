@@ -150,7 +150,7 @@ Common properties for both response types are:
   "Synonyms": [
     "highwaypricing"
   ],
-  "RelatedSearchDocuments":[  
+  "RelatedSearchDocuments": [  
       {  
          "SearchTerm": "search term 1",
          "DocsCount": 10
@@ -190,9 +190,9 @@ Unique to the *JsonObject* response:
       <td>Model containg all facets currently implemented on the engine.</td>
     </tr>
 	<tr>
-      <td>RelatedSearchDocuments*</td>
-      <td>RelatedSearches model</td>
-      <td>An array of Related Searches.</td>
+      <td>RelatedSearchDocuments</td>
+      <td>Related searches model</td>
+      <td>An array of related searches.</td>
     </tr>
   </tbody>
 </table>
@@ -214,6 +214,7 @@ Unique to the *JsonObject* response:
   "TotalDocument": 80,
   "SearchResult": "<A HTML STRING>", 
   "Facets": "<A HTML STRING>",
+  "RelatedSearchesResult": "<A HTML STRING>",
   "Banners": [
     {
       "Banner":"<A HMTL STRING>",
@@ -253,7 +254,7 @@ Unique to the *JsonHtml* response:
       <td>The html generated string of the search results, created with the template set in the request.</td>
     </tr> 
 	  <tr>
-      <td>RelatedSearchesResult*</td>
+      <td>RelatedSearchesResult</td>
       <td>string</td>
       <td>The html generated string of the related searches results, created with the template set in the request.</td>
     </tr> 

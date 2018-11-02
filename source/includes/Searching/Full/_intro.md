@@ -18,8 +18,10 @@ curl
 ```
 > Go [here](#full-searches_request-table) to se a full example of a request body and [here](#full-searches_response) to se a response body.
 
-
 `POST https://api.cludo.com/api/v3/{CustomerId}/{EngineId}/search`
+
+
+
 
 Parameter | Description
 ----- | ------

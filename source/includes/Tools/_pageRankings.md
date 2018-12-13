@@ -110,7 +110,7 @@ pageId | int | Legacy, disregard
 hasPageId | bool | Legacy, disregard
 isAddedAlready | bool | Whether the document is already added to a ranking group
 
-<h3 id="tools_pageRankings_getAll">Get all</h3>
+<h3 id="tools_pageRankings_getAll">Get all page rankings</h3>
 
 Get all page rankings for the entire account.
 
@@ -127,7 +127,7 @@ $ curl "https://api.cludo.com/api/rankings"
 
 Will return an array of ranking groups. See [data structures](#tools_pageRankings_dataStructures).
 
-<h3 id="tools_pageRankings_getAllByEngine">Get all by engine</h3>
+<h3 id="tools_pageRankings_getAllByEngine">Get all page rankings by engine</h3>
 
 Get all page rankings for a specific engine.
 
@@ -150,7 +150,7 @@ Engine ID | int | The ID of the specific engine
 
 Will return an array of ranking groups. See [data structures](#tools_pageRankings_dataStructures).
 
-<h3 id="tools_pageRankings_getSingle">Get single</h3>
+<h3 id="tools_pageRankings_getSingle">Get single page ranking</h3>
 
 Get a specific page ranking.
 
@@ -212,7 +212,7 @@ An array of unique identifiers for documents that you want to exclude from the r
 
 Will return an array of indexed documents. See [data structures](#tools_pageRankings_dataStructures).
 
-<h3 id="tools_pageRankings_create">Create</h3>
+<h3 id="tools_pageRankings_create">Create page ranking</h3>
 
 Create a page ranking.
 
@@ -260,7 +260,7 @@ A single ranking group. See [data structures](#tools_pageRankings_dataStructures
 
 Will return the created ranking group. See [data structures](#tools_pageRankings_dataStructures).
 
-<h3 id="tools_pageRankings_update">Update</h3>
+<h3 id="tools_pageRankings_update">Update page ranking</h3>
 
 Update a specific page ranking.
 
@@ -383,7 +383,7 @@ A single ranking group. See [data structures](#tools_pageRankings_dataStructures
 
 Will return the updated ranking group. See [data structures](#tools_pageRankings_dataStructures).
 
-<h3 id="tools_pageRankings_delete">Delete</h3>
+<h3 id="tools_pageRankings_delete">Delete page ranking</h3>
 
 Delete a specific page ranking.
 

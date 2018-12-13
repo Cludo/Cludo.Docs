@@ -88,6 +88,28 @@ id | int | The ID of the term
 rankingId | int | The ID of the ranking group this term belongs to
 name | string | The actual term
 
+<h4>Indexed document</h4>
+
+```json
+{
+    "url": "https://www.cludo.com/contact/",
+    "title": "Contact",
+    "documentId": "https://www.cludo.com/contact",
+    "pageId": -1,
+    "hasPageId": false,
+    "isAddedAlready": false
+}
+```
+
+Key | Type | Description
+--- | --- | ---
+url | string | The URL of the original resource
+title | string | The title of the original resource
+documentId | string | The unique identifier of the document
+pageId | int | Legacy, disregard
+hasPageId | bool | Legacy, disregard
+isAddedAlready | bool | Whether the document is already added to a ranking group
+
 <h3 id="tools_pageRankings_getAll">Get all</h3>
 
 Get all page rankings for the entire account.
@@ -151,6 +173,45 @@ Page ranking ID | int | The ID of the specific page ranking
 
 Will return a single ranking group. See [data structures](#tools_pageRankings_dataStructures).
 
+<h3 id="tools_pageRankings_getIndexedDocuments">Get indexed documents</h3>
+
+Get indexed documents for an engine by either title or URL similarity.
+
+<h4>Request</h4>
+
+```shell
+$ curl "https://api.cludo.com/api/v3/9056485/7578030/search/alldocuments?filter=contact&type=title&functionType=pageranking&page=1&perpage=25"
+    -X POST
+    -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
+    -H "Content-Type: application/json"
+    -d '[
+            "https://www.cludo.com/site-search-features",
+            "https://www.cludo.com/intranet"
+        ]'
+```
+
+`POST https://api.cludo.com/api/v3/<Customer ID>/<Engine ID>/search/alldocuments?filter=<Filter>&type=<Type>&functionType=<Function type>&page=<Page>&perpage=<Per page>`
+
+<h5>URL parameters</h5>
+
+Parameter | Type | Description
+--- | --- | ---
+Customer ID | int | Your ID
+Engine ID | int | The ID of the specific engine
+Filter | string | The search term
+Type | string | How you want it to match on the filter. Either **any**, **title**, or **url**
+Function type | string | In this context, this **must** be **pageranking**
+Page | int | Used for pagination. If omitted, it will default to **1**
+Per page | int | Used for pagination. If omitted, it will default to **25**
+
+<h5>Body</h5>
+
+An array of unique identifiers for documents that you want to exclude from the results. Otherwise, just an empty array.
+
+<h4>Response</h4>
+
+Will return an array of indexed documents. See [data structures](#tools_pageRankings_dataStructures).
+
 <h3 id="tools_pageRankings_create">Create</h3>
 
 Create a page ranking.
@@ -191,6 +252,7 @@ $ curl "https://api.cludo.com/api/rankings"
 <h5>Body</h5>
 
 <aside class="warning">The id key **must** be omitted.</aside>
+<aside class="warning">It's important that the pageid key is an exact match with the unique identifier we have for the document internally. It's usually the same as the URL, but it could be any string. See <a href="#tools_pageRankings_getIndexedDocuments">Get indexed documents</a> for a way to obtain it.</aside>
 
 A single ranking group. See [data structures](#tools_pageRankings_dataStructures).
 
@@ -313,6 +375,7 @@ Page ranking ID | int | The ID of the specific page ranking
 
 <aside class="notice">The id key can be omitted with a PUT request, as it won't be respected.</aside>
 <aside class="warning">The id key **must** be included with a POST request.</aside>
+<aside class="warning">It's important that the pageid key is an exact match with the unique identifier we have for the document internally. It's usually the same as the URL, but it could be any string. See <a href="#tools_pageRankings_getIndexedDocuments">Get indexed documents</a> for a way to obtain it.</aside>
 
 A single ranking group. See [data structures](#tools_pageRankings_dataStructures).
 

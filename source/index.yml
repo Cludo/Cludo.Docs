@@ -49,6 +49,7 @@ includes:
   - Statistics/_clickCounts
   
   - Tools/_intro
+  - Tools/_pageRankings
   - Tools/_quicklinks
   
   - DataIndexing/_intro

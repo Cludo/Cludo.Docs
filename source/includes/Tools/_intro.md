@@ -4,4 +4,5 @@
 
 Cludo provides you with a multitude of tools that can be used to provide your visitors with a great user experience.
 
+* [Page rankings](#tools_pageRankings)
 * [Quicklinks](#tools_quicklinks)

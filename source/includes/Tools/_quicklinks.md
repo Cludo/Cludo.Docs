@@ -4,7 +4,7 @@ Quicklinks are useful if you want to redirect your visitors to a specific url wh
 
 <aside class="notice">You can read more about quicklinks <a href="https://cludo.zendesk.com/hc/en-us/articles/115002466252-Quicklinks" target="_blank">here</a>.</aside>
 
-<h3 id="tools_quicklinks_structures">Structures</h3>
+<h3 id="tools_quicklinks_dataStructures">Data structures</h3>
 
 <h4>Quicklink</h4>
 

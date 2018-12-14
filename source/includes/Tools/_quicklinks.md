@@ -57,7 +57,7 @@ Quicklink ID | int | The ID of the specific quicklink
 
 <h4>Response</h4>
 
-Will return a single quicklink. See [structures](#tools_quicklinks_structures).
+Will return a single quicklink. See [data structures](#tools_quicklinks_dataStructures).
 
 <h3 id="tools_quicklinks_getbyengine">Get quicklinks by engine</h3>
 
@@ -80,7 +80,7 @@ Engine ID | int | The ID of the specific engine
 
 <h4>Response</h4>
 
-Will return an array of quicklinks. See [structures](#tools_quicklinks_structures).
+Will return an array of quicklinks. See [data structures](#tools_quicklinks_dataStructures).
 
 <h3 id="tools_quicklinks_getbyengineandterm">Get quicklinks by engine and term</h3>
 
@@ -109,7 +109,7 @@ Term | string | The specific term.
 
 <h4>Response</h4>
 
-Will return an array of quicklinks. See [structures](#tools_quicklinks_structures).
+Will return an array of quicklinks. See [data structures](#tools_quicklinks_dataStructures).
 
 <h3 id="tools_quicklinks_create">Create quicklink</h3>
 
@@ -139,11 +139,11 @@ $ curl "https://api.cludo.com/api/quicklinks"
 
 <aside class="warning">The id key **must** be omitted.</aside>
 
-A single quicklink. See [structures](#tools_quicklinks_structures).
+A single quicklink. See [data structures](#tools_quicklinks_dataStructures).
 
 <h4>Response</h4>
 
-Will return the created quicklink. See [structures](#tools_quicklinks_structures).
+Will return the created quicklink. See [data structures](#tools_quicklinks_dataStructures).
 
 <h3 id="tools_quicklinks_update">Update quicklink</h3>
 
@@ -199,11 +199,11 @@ Quicklink ID | int | The ID of the specific quicklink
 <aside class="notice">The id key can be omitted with a PUT request, as it won't be respected.</aside>
 <aside class="warning">The id key **must** be included with a POST request.</aside>
 
-A single quicklink. See [structures](#tools_quicklinks_structures).
+A single quicklink. See [data structures](#tools_quicklinks_dataStructures).
 
 <h4>Response</h4>
 
-Will return the updated quicklink. See [structures](#tools_quicklinks_structures).
+Will return the updated quicklink. See [data structures](#tools_quicklinks_dataStructures).
 
 <h3 id="tools_quicklinks_delete">Delete quicklink</h3>
 

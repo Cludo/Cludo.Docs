@@ -7,7 +7,7 @@ language_tabs:
 
 toc_footers:
   - <h3>Need help?</h3>
-  - <a href='https://my.cludo.com/#/account/settings/apisettings' target='_blank'>Find your API settings</a>
+  - <a href='https://my.cludo.com/settings/api-settings' target='_blank'>Find your API settings</a>
   - <a href='https://www.cludo.com/contact/' target='_blank'>Contact us</a>
 
 includes:

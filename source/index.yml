@@ -51,6 +51,7 @@ includes:
   - Tools/_intro
   - Tools/_pageRankings
   - Tools/_quicklinks
+  - Tools/_synonyms
   
   - DataIndexing/_intro
   - DataIndexing/_pushurls

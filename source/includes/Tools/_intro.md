@@ -6,3 +6,4 @@ Cludo provides you with a multitude of tools that can be used to provide your vi
 
 * [Page rankings](#tools_pageRankings)
 * [Quicklinks](#tools_quicklinks)
+* [Synonyms](#tools_synonyms)

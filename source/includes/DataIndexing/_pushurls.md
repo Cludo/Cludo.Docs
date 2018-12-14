@@ -13,7 +13,7 @@ $ curl "https://api.cludo.com/api/v3/4545589/content/2368899/pushurls"
     -H "Content-Type: application/json"
     -d '[
             "https://www.cludo.com/en/products/",
-            "https://www.cludo.com/en/features/
+            "https://www.cludo.com/en/features/"
         ]'
 ```
 

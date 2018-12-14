@@ -15,6 +15,8 @@ $ curl "https://api.cludo.com/api/v3/search"
 
 <h5>Parameters</h5>
 
+<aside class="notice">Note that the last part of the credentials is **not** a parameter, but literally the string **SearchKey**.</aside>
+
 Key | Type | Description
 --- | --- | ---
 Customer ID | int | Your ID

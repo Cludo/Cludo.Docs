@@ -48,7 +48,7 @@ Engine ID | int | The ID of the specific engine that was used for the query
 
 Key | Represents | Type | Description
 --- | --- | --- | ---
-ls | Log source | string | Definition of the log source and should always be 'searchresult' when recording clicks
+ls | Log source | string | Definition of the log source. For tracking regular clicks, it must be set to **searchresult**. For tracking banner clicks, it must be set to **banner**.
 sz | Screen size | string | The pixel resolution of the visitor's screen
 ua | User agent | string | The visitor's user agent string
 refurl | Referal url | string | The URL of the page the query originated from

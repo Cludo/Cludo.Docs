@@ -9,6 +9,7 @@ $ curl "https://api.cludo.com/api/v3/4545589/7578030/search/pushstat/clicklog"
     -X POST
     -H "Content-Type: application/json"
     -d '{
+            "ls": "searchresult",
             "sz": "4096x2160",
             "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
             "refurl": "https://www.cludo.com/site-search-features/",
@@ -47,6 +48,7 @@ Engine ID | int | The ID of the specific engine that was used for the query
 
 Key | Represents | Type | Description
 --- | --- | --- | ---
+ls | Log source | string | Definition of the log source and should always be 'searchresult' when recording clicks
 sz | Screen size | string | The pixel resolution of the visitor's screen
 ua | User agent | string | The visitor's user agent string
 refurl | Referal url | string | The URL of the page the query originated from

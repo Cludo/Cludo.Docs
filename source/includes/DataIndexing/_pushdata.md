@@ -63,4 +63,4 @@ Key | Type | Description
 Title | string | The title of a search result
 Description | string | The description of a search result
 Type | string | Must be <b>PageContent</b> for pages and <b>FileContent</b> for files
-CustomField | string | Custom field, can be set to anything
+CustomField | string / int | Custom field, can be set to anything

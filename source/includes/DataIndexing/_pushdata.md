@@ -23,7 +23,7 @@ Parameter | Description
 ----- | ------
 CustomerId | Your customer id
 CrawlerId | The id of the crawler to index the data into
-
+Type | Type of content, must be <b>PageContent</b> for pages and <b>FileContent</b> for files
 
 
 
@@ -38,13 +38,15 @@ CrawlerId | The id of the crawler to index the data into
     "Title":"My title",
     "Description":"Description",
     "CustomField1":222,
-    "CustomField2":"News"
+    "CustomField2":"News",
+    "Type": "PageContent"
   },
   {
     "Title":"My title",
     "Description":"Description",
     "CustomField1":123,
-    "CustomField2":"Events"
+    "CustomField2":"Events",
+    "Type": "PageContent"
   }
 ]
 ```

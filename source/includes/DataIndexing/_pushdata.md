@@ -23,7 +23,8 @@ Parameter | Description
 ----- | ------
 CustomerId | Your customer id
 CrawlerId | The id of the crawler to index the data into
-Type | Type of content, must be <b>PageContent</b> for pages and <b>FileContent</b> for files
+
+
 
 
 
@@ -37,16 +38,16 @@ Type | Type of content, must be <b>PageContent</b> for pages and <b>FileContent<
   {
     "Title":"My title",
     "Description":"Description",
+    "Type": "PageContent",
     "CustomField1":222,
-    "CustomField2":"News",
-    "Type": "PageContent"
+    "CustomField2":"News"
   },
   {
     "Title":"My title",
     "Description":"Description",
+    "Type": "PageContent",
     "CustomField1":123,
     "CustomField2":"Events",
-    "Type": "PageContent"
   }
 ]
 ```
@@ -54,3 +55,12 @@ Type | Type of content, must be <b>PageContent</b> for pages and <b>FileContent<
 The body consists of result models of the data you wish to index. Each model consist of the field name with the associated value to set.
 
 See an example in the code menu.
+
+<h5>Body/query parameters</h5>
+
+Key | Type | Description
+--- | --- | ---
+Title | string | The title of a search result
+Description | string | The description of a search result
+Type | string | Must be <b>PageContent</b> for pages and <b>FileContent</b> for files
+CustomField | string | Custom field, can be set to anything

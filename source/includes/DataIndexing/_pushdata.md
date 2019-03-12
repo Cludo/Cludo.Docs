@@ -56,7 +56,7 @@ The body consists of result models of the data you wish to index. Each model con
 
 See an example in the code menu.
 
-<h5>Body/query parameters</h5>
+<h5>Body parameters</h5>
 
 Key | Type | Description
 --- | --- | ---

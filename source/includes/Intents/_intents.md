@@ -1,6 +1,6 @@
 <h1 id="intents">Intents</h1>
 
-Intents purpose is to give users an overview of commonly searched queries terms and bundle them together based on machine learning.
+Intents purpose is to give users an overview of commonly searched queries and bundle them together based on machine learning.
 
 <aside class="notice">
 Intents requires [basic authentication](#authentication_basic).

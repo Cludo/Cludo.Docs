@@ -14,11 +14,8 @@ The following endpoints are currently available:
 * [Trending](#intents_trending)
 * [Ineffective](#intents_ineffective)
 * [Top](#intents_top)
+* [List](#intents_list)
 * [Details](#intents_details)
-
-
-
-
 
 
 
@@ -234,7 +231,7 @@ orderBy | string | How the results should be ordered (optional - default is ctr)
 
 <h2 id="intents_top">Top</h2>
 
-Shows top intents??
+Shows top intents
 
 #### HTTP request
 
@@ -289,11 +286,40 @@ orderBy | string | How the results should be ordered (optional - default is sear
 ```
 
 
+<h2 id="intents_list">List</h2>
+
+Shows list of intents
+
+#### HTTP request
+
+> The command below is an example on how to receive details on a specific intent
+
+```shell
+curl
+-X GET \
+-I https://api-eu1.cludo.com/api/v3/36/58/intents/list?sort={typeOfIntent}&limit=5&pageNumber=1&query={filteringIntentQuery}\
+-u {CustomerId}:{API_Key} \
+```
+
+`GET http://api.cludo.com/api/v3/{customerId}/{engineId}/intents/details?<Query parameters>`
+
+<h5>Query parameters</h5>
+
+Key | Type | Description
+--- | --- | ---
+sort | string | Type of intent (top, trending or ineffective) (required)
+limit | int | Number of intents to return (optional - default is 1000)
+pageNumber | int | The page (optional - default is 1)
+query | string | Intents filter. Works with wildcards (optional - default is empty)
+
+
+Response:
+Object ({...}), the same as the object corresponding to the enpoint representing the Type/sort of the intent (top, trending or ineffective).
 
 
 <h2 id="intents_details">Details</h2>
 
-Shows details about an intent
+Shows details about a specific intent
 
 #### HTTP request
 
@@ -407,33 +433,3 @@ orderBy | string | How the results should be ordered (optional - default is sear
     }
 }
 ```
-
-<h2 id="intents_list">List</h2>
-
-Shows list of intents??
-
-#### HTTP request
-
-> The command below is an example on how to receive details on a specific intent
-
-```shell
-curl
--X GET \
--I https://api-eu1.cludo.com/api/v3/36/58/intents/list?sort={typeOfIntent}&limit=5&pageNumber=1&query={filteringIntentQuery}\
--u {CustomerId}:{API_Key} \
-```
-
-`GET http://api.cludo.com/api/v3/{customerId}/{engineId}/intents/details?<Query parameters>`
-
-<h5>Query parameters</h5>
-
-Key | Type | Description
---- | --- | ---
-sort | string | Type of intent (top, trending or ineffective) (required)
-limit | int | Number of intents to return (optional - default is 1000)
-pageNumber | int | The page (optional - default is 1)
-query | string | Intents filter. Works with wildcards (optional - default is empty)
-
-
-Response:
-Object ({...}), the same as the object corresponding to the enpoint representing the Type/sort of the intent (top, trending or ineffective).

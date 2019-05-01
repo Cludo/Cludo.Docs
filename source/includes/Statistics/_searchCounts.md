@@ -9,7 +9,7 @@ $ curl "https://api.cludo.com/api/v3/4545589/7578030/statistics/searchHistogram?
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
 ```
 
-> The above command returns daily aggregated data in the following json structure:
+> The above command returns daily aggregated data in the following JSON structure:
 
 ```json
 {

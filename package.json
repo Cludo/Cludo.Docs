@@ -1,6 +1,6 @@
 {
   "name": "shins",
-  "version": "2.3.2-1",
+  "version": "2.3.2-4",
   "description": "Shins Is Not Slate",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,6 @@
     "ejs": "^2.5.1",
     "express": "^4.15.5",
     "highlightjs": "^9.10.0",
-    "js-yaml": "latest",
     "markdown-it": "latest",
     "markdown-it-attrs": "^1.2.1",
     "markdown-it-emoji": "^1.4.0",
@@ -43,11 +42,12 @@
     "opn": "^5.2.0",
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
-    "uglify-js": "^2.7.4"
+    "uglify-js": "^2.7.4",
+    "yaml": "^1.5.0"
   },
   "devDependencies": {
     "ejs-lint": "^0.2.0",
-    "node-sass": "^4.9.1",
+    "node-sass": "^4.11.0",
     "node-sass-asset-functions": "^0.1.0"
   }
 }

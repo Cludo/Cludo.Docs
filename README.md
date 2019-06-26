@@ -26,9 +26,11 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
     * `node shins.js --unsafe` or
     * `node shins.js --no-links`
 * To add custom logo add `--logo` option with path to your logo image.
+* To use a different layout template (default `source/layouts/layout.ejs` use the `--layout` option.
 * To make the logo image link to a webpage, add `--logo-url` option with URL to link to.
 * To specify a different output filename from the default `./index.html`, use the `--output` or `-o` option.
 * To allow css-style attributes in markdown, specify the `--attr` option.
+* You can specify another location for the `source` and `pub` directories using the `--root` option.
 * To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` your default browser will be opened automatically
 * Add, commit and push
 * Then (in your fork) press this button
@@ -127,8 +129,8 @@ $ api2html -o api.html api.yml
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
 * For converting [OpenAPI / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 * `arapaho` has a `--preserve` or `-p` option which will not overwrite your `.html` output file, but still re-render when necessary
-* Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
-* Shins additionally supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js) - this is not supported by Slate
+* Shins ships with an alternate theme by [TradeGecko](https://github.com/tradegecko) which is also under the Apache 2.0 license, `pub/css/tradegecko.min.css' can be included with the `--css` option
+* Shins additionally supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js) - this is not supported by Slate. See some [more information about including files](/docs/include.md).
 
 ### Shins in the wild
 
@@ -137,3 +139,4 @@ Please feel free to add a link to your API documentation here
 * [APIs.guru OpenAPI specification extensions (Semoasa) documentation](https://mermade.github.io/shins/apisguru.html)
 * [Signal Biometrics Ox documentation](https://signalbiometrics.github.io/ox-docs/)
 * [LeApp daemon API](https://leapp-to.github.io/shins/index.html)
+* [Shutterstock API](https://api-reference.shutterstock.com/)

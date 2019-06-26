@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const util = require('util');
 
 const maybe = require('call-me-maybe');
 
@@ -27,7 +26,7 @@ var md = require('markdown-it')({
     }
 }).use(require('markdown-it-lazy-headers'));
 md.use(emoji);
-const yaml = require('js-yaml');
+const yaml = require('yaml');
 const ejs = require('ejs');
 const uglify = require('uglify-js');
 const cheerio = require('cheerio');
@@ -47,7 +46,7 @@ function safeReadFileSync(filename,encoding) {
 }
 
 function javascript_include_tag(include) {
-    var includeStr = safeReadFileSync(path.join(__dirname, '/source/javascripts/' + include + '.inc'), 'utf8');
+    var includeStr = safeReadFileSync(path.join(globalOptions.root, '/source/javascripts/' + include + '.inc'), 'utf8');
     if (globalOptions.minify) {
         var scripts = [];
         var includes = includeStr.split('\r').join().split('\n');
@@ -56,11 +55,11 @@ function javascript_include_tag(include) {
             var elements = inc.split('"');
             if (elements[1]) {
                 if (elements[1] == 'text/javascript') {
-                    scripts.push(path.join(__dirname, 'source/javascripts/all_nosearch.js'));
+                    scripts.push(path.join(globalOptions.root, 'source/javascripts/all_nosearch.js'));
                     break;
                 }
                 else {
-                    scripts.push(path.join(__dirname, elements[1]));
+                    scripts.push(path.join(globalOptions.root, elements[1]));
                 }
             }
         }
@@ -69,15 +68,24 @@ function javascript_include_tag(include) {
             includeStr = '<script>'+bundle.code+'</script>';
         }
         else {
-            fs.writeFileSync(path.join(__dirname, '/pub/js/shins.js'), bundle.code, 'utf8');
-            includeStr = safeReadFileSync(path.join(__dirname, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
+            fs.writeFileSync(path.join(globalOptions.root, '/pub/js/shins.js'), bundle.code, 'utf8');
+            includeStr = safeReadFileSync(path.join(globalOptions.root, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
         }
     }
     return includeStr;
 }
 
 function partial(include) {
-    var includeStr = safeReadFileSync(path.join(__dirname, '/source/includes/_' + include + '.md'), 'utf8');
+    var includePath = '';
+    if (include.indexOf('/') === 0) {
+        includePath = path.join(globalOptions.root, include + '.md');
+    }
+    else {
+        let components = include.split('/');
+        components[components.length-1] = '_'+components[components.length-1]+'.md';
+        includePath = path.join(globalOptions.root, '/source/includes/'+components.join('/'));
+    }
+    var includeStr = safeReadFileSync(includePath, 'utf8');
     return postProcess(md.render(clean(includeStr)));
 }
 
@@ -91,7 +99,7 @@ function stylesheet_link_tag(stylesheet, media) {
         override = 'theme';
     }
     if (globalOptions.inline) {
-        var stylePath = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+        var stylePath = path.join(globalOptions.root, '/pub/css/' + stylesheet + '.css');
         if (!fs.existsSync(stylePath)) {
             stylePath = path.join(hlpath, '/styles/' + stylesheet + '.css');
         }
@@ -99,7 +107,7 @@ function stylesheet_link_tag(stylesheet, media) {
         styleContent = replaceAll(styleContent, '../../source/fonts/', globalOptions.fonturl||'https://raw.githubusercontent.com/Mermade/shins/master/source/fonts/');
         styleContent = replaceAll(styleContent, '../../source/', 'source/');
         if (globalOptions.customCss) {
-            let overrideFilename = path.join(__dirname, '/pub/css/' + override + '_overrides.css');
+            let overrideFilename = path.join(globalOptions.root, '/pub/css/' + override + '_overrides.css');
             if (fs.existsSync(overrideFilename)) {
                 styleContent += '\n' + safeReadFileSync(overrideFilename, 'utf8');
             }
@@ -113,7 +121,7 @@ function stylesheet_link_tag(stylesheet, media) {
     }
     else {
         if (media == 'screen') {
-            var target = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+            var target = path.join(globalOptions.root, '/pub/css/' + stylesheet + '.css');
             if (!fs.existsSync(target)) {
                 var source = path.join(hlpath, '/styles/' + stylesheet + '.css');
                 fs.writeFileSync(target, safeReadFileSync(source));
@@ -145,8 +153,11 @@ function language_array(language_tabs) {
 
 function preProcess(content,options) {
     let lines = content.split('\r').join('').split('\n');
+    const comments = [];
+    comments.push('<!-- Renderer: Shins v'+globalOptions.shins.version+' -->');
     for (let l=0;l<lines.length;l++) {
         let line = lines[l];
+        if (line.indexOf('<!--') >= 0) comments.push(line);
         let filename = '';
         if (line.startsWith('include::') && line.endsWith('[]')) { // asciidoc syntax
             filename = line.split(':')[2].replace('[]','');
@@ -162,6 +173,7 @@ function preProcess(content,options) {
         }
         else lines[l] = line;
     }
+    globalOptions.comments = comments;
     return lines.join('\n');
 }
 
@@ -179,6 +191,7 @@ function postProcess(content) {
     content = content.replace(/\<(h[123456]) id="(.*)"\>(.*)\<\/h[123456]\>/g, function (match, header, id, title) {
         return '<' + header + ' id="' + cleanId(id) + '">' + title + '</' + header + '>';
     });
+    content = content + globalOptions.comments.join('\n');
     return content;
 }
 
@@ -191,7 +204,8 @@ function clean(s) {
         allowedAttributes: { a: [ 'href', 'id', 'name', 'target', 'class' ], img: [ 'src', 'alt', 'class' ] , aside: [ 'class' ],
             abbr: [ 'title', 'class' ], details: [ 'open', 'class' ], div: [ 'class' ], meta: [ 'name', 'content' ],
             link: [ 'rel', 'href', 'type', 'sizes' ],
-            h1: [ 'id' ], h2: [ 'id' ], h3: [ 'id' ], h4: [ 'id' ], h5: [ 'id' ], h6: [ 'id' ]}
+            h1: [ 'id' ], h2: [ 'id' ], h3: [ 'id' ], h4: [ 'id' ], h5: [ 'id' ], h6: [ 'id' ],
+            table: [ 'class' ], tr: [ 'class' ], td: [ 'class' ]}
     };
     // replace things which look like tags which sanitizeHtml will eat
     s = s.split('\n>').join('\n$1$');
@@ -215,6 +229,30 @@ function clean(s) {
     return s;
 }
 
+function getBase64ImageSource(imageSource, imgContent) {
+    if(!imageSource || !imgContent) return "";
+
+    var mimeType = getMimeType(imageSource);
+    return "data:" + mimeType + ";base64," + Buffer.from(imgContent).toString('base64');
+}
+
+function getMimeType(imageSource) {
+    var extension = path.extname(imageSource).toLowerCase();
+    switch(extension) {
+        case ".svg":
+            return "image/svg+xml";
+        case ".webp":
+            return "image/webp";
+        case ".jpg":
+        case ".jpeg":
+            return "image/jpeg";
+        case ".gif":
+            return "image/gif";
+        default:
+            return "image/png";
+    }
+}
+
 function render(inputStr, options, callback) {
 
     if (options.attr) md.use(attrs);
@@ -227,8 +265,12 @@ function render(inputStr, options, callback) {
     if (options.inline == true) {
         options.minify = true;
     }
+    if (typeof options.root === 'undefined') {
+        options.root = __dirname;
+    }
     return maybe(callback, new Promise(function (resolve, reject) {
         globalOptions = options;
+        globalOptions.shins = require('./package.json');
 
         inputStr = inputStr.split('\r\n').join('\n');
         var inputArr = ('\n' + inputStr).split('\n---\n');
@@ -236,7 +278,7 @@ function render(inputStr, options, callback) {
             inputArr = ('\n' + inputStr).split('\n--- \n');
         }
         var headerStr = inputArr[1];
-        var header = yaml.safeLoad(headerStr);
+        var header = yaml.parse(headerStr);
 
         /* non-matching languages between Ruby Rouge and highlight.js at 2016/07/10 are
         ['ceylon','common_lisp','conf','cowscript','erb','factor','io','json-doc','liquid','literate_coffeescript','literate_haskell','llvm','make',
@@ -265,7 +307,8 @@ function render(inputStr, options, callback) {
                 var entry = {};
                 if (tag === 'h1') {
                     entry.id = $(this).attr('id');
-                    entry.content = $(this).text();
+                    entry.title = $(this).text();
+                    entry.content = $(this).html();
                     entry.children = [];
                     h1 = entry;
                     result.push(entry);
@@ -273,7 +316,8 @@ function render(inputStr, options, callback) {
                 if (tag === 'h2') {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h2 = child;
                     if (h1) h1.children.push(child);
@@ -281,7 +325,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 3) && (tag === 'h3')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h3 = child;
                     if (h2) h2.children.push(child);
@@ -289,7 +334,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 4) && (tag === 'h4')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h4 = child;
                     if (h3) h3.children.push(child);
@@ -297,7 +343,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 5) && (tag === 'h5')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h5 = child;
                     if (h4) h4.children.push(child);
@@ -305,7 +352,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 6) && (tag === 'h6')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     if (h5) h5.children.push(child);
                 }
             });
@@ -315,8 +363,8 @@ function render(inputStr, options, callback) {
         locals.image_tag = function (image, altText, className) {
             var imageSource = "source/images/" + image;
             if (globalOptions.inline) {
-                var imgContent = safeReadFileSync(path.join(__dirname, imageSource));
-                imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
+                var imgContent = safeReadFileSync(path.join(globalOptions.root, imageSource));
+                imageSource = getBase64ImageSource(imageSource, imgContent);
             }
             return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
         };
@@ -325,10 +373,10 @@ function render(inputStr, options, callback) {
             var imageSource = path.resolve(process.cwd(), globalOptions.logo);
             var imgContent = safeReadFileSync(imageSource);
             if (globalOptions.inline) {
-                imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
+                imageSource = getBase64ImageSource(imageSource, imgContent);
             } else {
                 var logoPath = "source/images/custom_logo" + path.extname(imageSource);
-                fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
+                fs.writeFileSync(path.join(globalOptions.root, logoPath), imgContent);
                 imageSource = logoPath;
             }
             var html = '<img src="' + imageSource + '" class="logo" alt="Logo">';
@@ -343,7 +391,7 @@ function render(inputStr, options, callback) {
 
         var ejsOptions = {};
         ejsOptions.debug = false;
-        ejs.renderFile(path.join(__dirname, '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
+        ejs.renderFile(path.join(globalOptions.root, options.layout || '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
             if (err) reject(err)
             else resolve(str);
         });
@@ -352,6 +400,6 @@ function render(inputStr, options, callback) {
 
 module.exports = {
     render: render,
-    srcDir: function () { return __dirname; }
+    srcDir: function () { return globalOptions.root; }
 };
 

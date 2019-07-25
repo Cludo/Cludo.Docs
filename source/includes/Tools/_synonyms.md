@@ -10,8 +10,8 @@ Synonyms are useful if you have the content your visitors are looking for, but t
 
 ```json
 {
-	"groupId": 1,
-	"words": ["work", "job", "career"],
+    "groupId": 1,
+    "words": ["work", "job", "career"],
     "language": "en"
 }
 ```
@@ -56,13 +56,13 @@ $ curl "https://api.cludo.com/api/synonymsgroup/9457415"
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
 ```
 
-`GET https://api.cludo.com/api/synonymsgroup/<SynonymGroupID>`
+`GET https://api.cludo.com/api/synonymsgroup/<Synonym Group ID>`
 
 <h5>URL parameters</h5>
 
 Parameter | Type | Description
 --- | --- | ---
-SynonymGroupID | int | The ID of the specific synonyms group
+Synonym Group ID | int | The ID of the specific synonyms group
 
 <h4>Response</h4>
 
@@ -80,9 +80,9 @@ $ curl "https://api.cludo.com/api/synonymsgroup"
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
     -H "Content-Type: application/json"
     -d '{
-		"words": ["work", "job", "career"],
-		"language": "en"
-	}'
+            "words": ["work", "job", "career"],
+            "language": "en"
+        }'
 ```
 
 `POST https://api.cludo.com/api/synonymsgroup`
@@ -95,7 +95,7 @@ A single synonyms group composed of multiple words which are synonyms. See [data
 
 Will return the created synonyms group. See [data structures](#tools_synonyms_dataStructures).
 
-<h3 id="tools_synonyms_update">Update Synonyms Group</h3>
+<h3 id="tools_synonyms_update">Update synonyms group</h3>
 
 Update a specific synonyms group.
 
@@ -107,19 +107,24 @@ $ curl "https://api.cludo.com/api/synonymsgroup"
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
     -H "Content-Type: application/json"
     -d '{
-			"groupId": 1,
+            "groupId": 1,
             "words": ["work", "job", "opportunity"],
             "language": "en"
         }'
 ```
 
-`PUT https://api.cludo.com/api/synonyms/<SynonymsGroupID>`
+`PUT https://api.cludo.com/api/synonyms/<Synonyms Group ID>`
+
+<h5>URL parameters</h5>
+
+Parameter | Type | Description
+--- | --- | ---
+Synonyms Group ID | int | The ID of the specific synonyms group
 
 <h5>Payload data in JSON Format</h5>
 
 Parameter | Type | Description
 --- | --- | ---
-SynonymsGroupID | int | The ID of the specific synonyms group
 words | array | The new/updated words
 language | string | A two-letter ISO language code
 
@@ -133,7 +138,7 @@ Will return the updated synonyms group. See [data structures](#tools_synonyms_da
 
 <h3 id="tools_synonyms_delete">Delete synonym</h3>
 
-Delete one or more Synonyms Group/s.
+Delete one or more synonyms groups.
 
 <h4>Request</h4>
 
@@ -143,10 +148,10 @@ $ curl "https://api.cludo.com/api/synonymsgroup?groupIds=1&groupIds=2&groupIds=3
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
 ```
 
-`DELETE https://api.cludo.com/api/synonymsgroup?groupIds=<SynonymGroupID>&groupIds=<SynonymGroupID>`
+`DELETE https://api.cludo.com/api/synonymsgroup?groupIds=<Synonym Group ID>&groupIds=<Synonym Group ID>`
 
 <h5>Query parameters</h5>
 
 Parameter | Type | Description
 --- | --- | ---
-GroupIDs | int | The ID of the specific synonyms group
+Synonym Group ID | int | The ID of the specific synonyms group

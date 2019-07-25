@@ -6,38 +6,34 @@ Synonyms are useful if you have the content your visitors are looking for, but t
 
 <h3 id="tools_synonyms_dataStructures">Data structures</h3>
 
-<h4>Synonym</h4>
+<h4>Synonyms Group</h4>
 
 ```json
 {
-    "id": 9457415,
-    "name": "vehicle",
-    "searchword": "car",
-    "language": "en",
-    "url": "http://cludo.com/9457415/"
+    "groupId": 1,
+    "words": ["work", "job", "career"],
+    "language": "en"
 }
 ```
 
 Key | Type | Description
 --- | --- | ---
-id | int | The ID of the synonym
-name | string | The actual synonym
-searchword | string | The term that should activate the synonym
+groupId | int | The ID of the synonyms group
+words | array | Collection of words which are synonyms
 language | string | A two-letter ISO language code
-url | string | Legacy, disregard
 
 <h3 id="tools_synonyms_getAllByLanguage">Get all synonyms by language</h3>
 
-Get all synonyms for a specific language.
+Get all synonyms groups for a specific language.
 
 <h4>Request</h4>
 
 ```shell
-$ curl "https://api.cludo.com/api/synonyms/en"
+$ curl "https://api.cludo.com/api/synonymsgroup/en"
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
 ```
 
-`GET https://api.cludo.com/api/synonyms/<Language>`
+`GET https://api.cludo.com/api/synonymsgroup/<Language>`
 
 <h5>URL parameters</h5>
 
@@ -47,109 +43,108 @@ Language | string | A two-letter ISO language code
 
 <h4>Response</h4>
 
-Will return an array of synonyms. See [data structures](#tools_synonyms_dataStructures).
+Will return an array of synonyms groups. See [data structures](#tools_synonyms_dataStructures).
 
-<h3 id="tools_synonyms_getSingle">Get single synonym</h3>
+<h3 id="tools_synonyms_getSingle">Get single synonyms group</h3>
 
-Get a specific synonym.
+Get a specific synonyms group.
 
 <h4>Request</h4>
 
 ```shell
-$ curl "https://api.cludo.com/api/synonyms/9457415"
+$ curl "https://api.cludo.com/api/synonymsgroup/9457415"
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
 ```
 
-`GET https://api.cludo.com/api/synonyms/<Synonym ID>`
+`GET https://api.cludo.com/api/synonymsgroup/<Synonym Group ID>`
 
 <h5>URL parameters</h5>
 
 Parameter | Type | Description
 --- | --- | ---
-Synonym ID | int | The ID of the specific synonym
+Synonym Group ID | int | The ID of the specific synonyms group
 
 <h4>Response</h4>
 
-Will return a single synonym. See [data structures](#tools_synonyms_dataStructures).
+Will return a single synonyms group. See [data structures](#tools_synonyms_dataStructures).
 
-<h3 id="tools_synonyms_create">Create synonym</h3>
+<h3 id="tools_synonyms_create">Create synonyms group</h3>
 
-Create a synonym.
+Create a synonyms group.
 
 <h4>Request</h4>
 
 ```shell
-$ curl "https://api.cludo.com/api/synonyms"
+$ curl "https://api.cludo.com/api/synonymsgroup"
     -X POST
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
     -H "Content-Type: application/json"
     -d '{
-            "name": "vehicle",
-            "searchword": "car",
+            "words": ["work", "job", "career"],
             "language": "en"
         }'
 ```
 
-`POST https://api.cludo.com/api/synonyms`
+`POST https://api.cludo.com/api/synonymsgroup`
 
 <h5>Body</h5>
 
-A single synonym. See [data structures](#tools_synonyms_dataStructures).
+A single synonyms group composed of multiple words which are synonyms. See [data structures](#tools_synonyms_dataStructures).
 
 <h4>Response</h4>
 
-Will return the created synonym. See [data structures](#tools_synonyms_dataStructures).
+Will return the created synonyms group. See [data structures](#tools_synonyms_dataStructures).
 
-<h3 id="tools_synonyms_update">Update synonym</h3>
+<h3 id="tools_synonyms_update">Update synonyms group</h3>
 
-Update a specific synonym.
+Update a specific synonyms group.
 
 <h4>Request</h4>
 
 ```shell
-$ curl "https://api.cludo.com/api/synonyms/9457415"
+$ curl "https://api.cludo.com/api/synonymsgroup"
     -X PUT
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
     -H "Content-Type: application/json"
     -d '{
-            "name": "car",
-            "searchword": "vehicle",
+            "groupId": 1,
+            "words": ["work", "job", "opportunity"],
             "language": "en"
         }'
 ```
 
-`PUT https://api.cludo.com/api/synonyms/<Synonym ID>`
+`PUT https://api.cludo.com/api/synonyms/<Synonyms Group ID>`
 
 <h5>URL parameters</h5>
 
 Parameter | Type | Description
 --- | --- | ---
-Synonym ID | int | The ID of the specific synonym
+Synonyms Group ID | int | The ID of the specific synonyms group
 
 <h5>Body</h5>
 
-A single synonym. See [data structures](#tools_synonyms_dataStructures).
+A single synonyms group. See [data structures](#tools_synonyms_dataStructures).
 
 <h4>Response</h4>
 
-Will return the updated synonym. See [data structures](#tools_synonyms_dataStructures).
+Will return the updated synonyms group. See [data structures](#tools_synonyms_dataStructures).
 
 <h3 id="tools_synonyms_delete">Delete synonym</h3>
 
-Delete a specific synonym.
+Delete one or more synonyms groups.
 
 <h4>Request</h4>
 
 ```shell
-$ curl "https://api.cludo.com/api/synonyms/9457415"
+$ curl "https://api.cludo.com/api/synonymsgroup?groupIds=1&groupIds=2&groupIds=3"
     -X DELETE
     -u 4545589:3ede38fdc0824e18bb3adb9a21fbbdc8
 ```
 
-`DELETE https://api.cludo.com/api/synonyms/<Synonym ID>`
+`DELETE https://api.cludo.com/api/synonymsgroup?groupIds=<Synonym Group ID>&groupIds=<Synonym Group ID>`
 
-<h5>URL parameters</h5>
+<h5>Query parameters</h5>
 
 Parameter | Type | Description
 --- | --- | ---
-Synonym ID | int | The ID of the specific synonym
+Synonym Group ID | int | The ID of the specific synonyms group

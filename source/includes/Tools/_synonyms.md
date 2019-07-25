@@ -68,7 +68,7 @@ Synonym Group ID | int | The ID of the specific synonyms group
 
 Will return a single synonyms group. See [data structures](#tools_synonyms_dataStructures).
 
-<h3 id="tools_synonyms_create">Create Synonyms Group</h3>
+<h3 id="tools_synonyms_create">Create synonyms group</h3>
 
 Create a synonyms group.
 
@@ -120,13 +120,6 @@ $ curl "https://api.cludo.com/api/synonymsgroup"
 Parameter | Type | Description
 --- | --- | ---
 Synonyms Group ID | int | The ID of the specific synonyms group
-
-<h5>Payload data in JSON Format</h5>
-
-Parameter | Type | Description
---- | --- | ---
-words | array | The new/updated words
-language | string | A two-letter ISO language code
 
 <h5>Body</h5>
 

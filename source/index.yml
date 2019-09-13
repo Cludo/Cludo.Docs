@@ -57,6 +57,8 @@ includes:
   - DataIndexing/_pushurls
   - DataIndexing/_pushdata
   - DataIndexing/_delete
+  
+  - Intents/_intents
 
 
 search: true

@@ -64,3 +64,5 @@ clurl | Click URL | string | The URL of the clicked search result
 cli | Clicked search result index | string | The index of the clicked search result
 cloi | Clicked banner ID | string | The ID of the banner, if it was a banner that was clicked
 title | Title | string | The title of the clicked search result
+dt | Device Type | string | The type of device from which the search has been performed. Currently, our cludo.js script supplies the abstract device types - mobile, tablet, or desktop. We recommend sticking to these to be consistent with the script.
+

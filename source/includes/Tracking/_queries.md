@@ -66,3 +66,4 @@ ql | Quicklink ID | string | The quicklink ID, if a quicklink redirection occurs
 qid | Query ID | string | A unique string used as the ID of the query
 sid | Visitor session ID | string | A unique string used as the ID of the visitor session
 qsid | Query session ID | string | A unique string used as the ID of the query session
+dt | Device Type | string | The type of device from which the search has been performed. Currently, our cludo.js script supplies the abstract device types - mobile, tablet, or desktop. We recommend sticking to these to be consistent with the script.

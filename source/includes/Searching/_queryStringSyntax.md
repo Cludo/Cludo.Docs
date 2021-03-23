@@ -115,7 +115,19 @@ Searching with wildcards lets the searchengine insert zero or more characters wi
 
 For example: `*bike` will match *bike*, *mountainbike*, *citybike* and other terms ending with bike, wheras `si?e` will match *site* and *size* but not *resize*.
 
-
+<aside class="warning">Keep in mind that we perform stemming on content that is indexed, and that queries containing wildcards won't be stemmed. That means you will need to keep your query within the boundaries of the stem to match the content. The stemming is language specific, but an example for an English index could be the word **community**, the stem of which is **commun**.
+<p></p>
+<p>The following queries **would** match:</p>
+<ul>
+<li>com&#42;</li>
+<li>commun&#42;</li>
+</ul>
+<p>The following queries would **not** match:</p>
+<ul>
+<li>communi&#42;</li>
+<li>community&#42;</li>
+</ul>
+</aside>
 
 
 

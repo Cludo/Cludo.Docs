@@ -42,6 +42,7 @@ includes:
   - Tracking/_intro
   - Tracking/_queries
   - Tracking/_clicks
+  - Tracking/_ip
 
   - Statistics/_intro
   - Statistics/_searchCounts

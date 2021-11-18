@@ -16,7 +16,7 @@
   "postFilters": {
     "Category": ["Publications", "Events"]
   },
-  "postFilterOperator": "or",
+  "postFiltersOperator": "or",
   "enableFacetFiltering": true,
   "enableRelatedSearches": true,
 

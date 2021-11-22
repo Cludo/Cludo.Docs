@@ -6,7 +6,7 @@
     "Category": ["Publications", "Events"],
     "date": ["EventDate", "20170601", "20170630"]
   },
-  "postFilterOperator": "or",
+  "postFiltersOperator": "or",
 
   "filters": {
     "Domain": ["http://www.mydomain.com"],
@@ -26,7 +26,7 @@ Filtering limits search request fields to match given values, such as a price wi
 Currently, three properties are used to set filters: `filters`, `notFilters` and `postFilters`. Which property you use, depends on when in the search process the filter is added:
 `filters` and `notFilters` are executed along with the query, and will affect the ranking and facets, whereas the `postFilter` only filters out not matching search results, but does not affect facets. To enable `postFilters` on facets use the `enableFacetFiltering` property.
 
-By default, when specifying multiple post filters, then all filters must match, before a search result is valid. To change this behavior use the `postFilterOperator` property. Its possible values are:
+By default, when specifying multiple post filters, then all filters must match, before a search result is valid. To change this behavior use the `postFiltersOperator` property. Its possible values are:
 
 * **and**
 * **or**

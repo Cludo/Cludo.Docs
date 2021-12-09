@@ -26,4 +26,12 @@ Crawler ID | The ID of the specific crawler you'd like to crawl the given URLs
 
 #### HTTP body
 
-The body content is simply a newline list of urls to crawl.
+The pushurls takes a collection of pages, if it’s one page
+
+> The request body would look like this:
+
+```json
+[
+  "https://example.com/page/to/index"
+]
+```

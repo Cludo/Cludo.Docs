@@ -26,9 +26,9 @@ Crawler ID | The ID of the specific crawler you'd like to crawl the given URLs
 
 #### HTTP body
 
-The pushurls takes a collection of pages, if it’s one page
+The pushurls takes a collection of pages.
 
-> The request body would look like this:
+> If it’s one page, the request body would look like this:
 
 ```json
 [

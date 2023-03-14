@@ -2,7 +2,7 @@
 
 Quicklinks are useful if you want to redirect your visitors to a specific url when they search for a pre-defined term.
 
-<aside class="notice">You can read more about quicklinks <a href="https://cludohelp.force.com/helpcenter/s/article/How-do-I-add-Quicklinks" target="_blank">here</a>.</aside>
+<aside class="notice">You can read more about quicklinks <a href="https://help.cludo.com/how-to/how-to-set-up-quicklinks/" target="_blank">here</a>.</aside>
 
 <h3 id="tools_quicklinks_dataStructures">Data structures</h3>
 

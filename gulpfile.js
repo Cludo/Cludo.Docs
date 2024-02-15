@@ -1,24 +1,22 @@
-var fs = require('fs');
+import fs from 'fs';
+import gulp from 'gulp';
+import cleanCSS from 'gulp-clean-css';
+import concat from 'gulp-concat';
+import ejs from 'gulp-ejs';
+import gls from 'gulp-live-server';
+import gulpif from 'gulp-if';
+import open from 'gulp-open';
+import prettify from 'gulp-prettify';
+import rename from 'gulp-rename';
+import sass from 'gulp-sass';
+import uglify from 'gulp-uglify';
+import gutil from 'gulp-util';
+import runSeq from 'run-sequence';
 
-var gulp = require('gulp');
-var cleanCSS = require('gulp-clean-css');
-var concat = require('gulp-concat');
-var ejs = require('gulp-ejs');
-var gls = require('gulp-live-server');
-var gulpif = require('gulp-if');
-var open = require('gulp-open');
-var prettify = require('gulp-prettify');
-var rename = require("gulp-rename");
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var gutil = require('gulp-util');
-var runSeq = require('run-sequence');
-
-var del = require('del');
-var highlight = require('highlight.js');
-var marked = require('marked');
-var yaml = require('js-yaml');
-
+import * as del from 'del';
+import highlight from 'highlight.js';
+import  * as marked from 'marked';
+import yaml from 'js-yaml';
 
 var renderer = new marked.Renderer();
 var COMPRESS = true;
@@ -145,7 +143,7 @@ gulp.task('default-devel', function(cb) {
 });
 
 
-gulp.task('serve', ['default-devel'], function(cb) {
+gulp.task('serve', gulp.series('default-devel', function(cb) {
 	
   gulp.watch(['./source/*.html', './source/includes/**/*'], ['html']);
   gulp.watch('./source/javascripts/**/*', ['js']);
@@ -160,4 +158,6 @@ gulp.task('serve', ['default-devel'], function(cb) {
   });
 
   gulp.src(__filename).pipe(open({uri: 'http://localhost:4567'}));
-});
+
+  cb(); // Callback to signal completion
+}));

@@ -49,6 +49,11 @@ Common properties for both response types are:
       <td>string array</td>
       <td>An array of synonyms matching the search query.</td>
     </tr>
+    <tr>
+      <td>GenerativeAnswerAvailable</td>
+      <td>bool</td>
+      <td>True/False indicating the likelihood for providing a good generative answer for the query.</td>
+    </tr>
   </tbody>
 </table>
 

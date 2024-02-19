@@ -1,24 +1,28 @@
-var fs = require('fs');
+import fs from 'fs';
+import gulp from 'gulp';
+import cleanCSS from 'gulp-clean-css';
+import concat from 'gulp-concat';
+import ejs from 'gulp-ejs';
+import gls from 'gulp-live-server';
+import gulpif from 'gulp-if';
+import open from 'gulp-open';
+import prettify from 'gulp-prettify';
+import rename from 'gulp-rename';
+import gulpSass from 'gulp-sass';
+import * as dartSass from 'sass'
+import uglify from 'gulp-uglify';
+import gutil from 'gulp-util';
+import * as del from 'del';
+import highlight from 'highlight.js';
+import { marked } from 'marked';
+import yaml from 'js-yaml';
 
-var gulp = require('gulp');
-var cleanCSS = require('gulp-clean-css');
-var concat = require('gulp-concat');
-var ejs = require('gulp-ejs');
-var gls = require('gulp-live-server');
-var gulpif = require('gulp-if');
-var open = require('gulp-open');
-var prettify = require('gulp-prettify');
-var rename = require("gulp-rename");
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var gutil = require('gulp-util');
-var runSeq = require('run-sequence');
+// gulp-sass requires a sass compiler
+const sass = gulpSass(dartSass);
 
-var del = require('del');
-var highlight = require('highlight.js');
-var marked = require('marked');
-var yaml = require('js-yaml');
-
+// Derive __filename from import meta (__filename is not included in ES modules)
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
 
 var renderer = new marked.Renderer();
 var COMPRESS = true;
@@ -31,7 +35,7 @@ renderer.code = function (code, language) {
 };
 
 var readIndexYml = function() {
-  return yaml.safeLoad(fs.readFileSync('./source/index.yml', 'utf8'));
+  return yaml.load(fs.readFileSync('./source/index.yml', 'utf8'));
 };
 
 var getPageData = function() {
@@ -63,8 +67,9 @@ var getPageData = function() {
   };
 };
 
-gulp.task('clean', function () {
-  return del(['build/*']);
+gulp.task('clean', function (cb) {
+  del.deleteSync(['build/*']);
+  cb();
 });
 
 gulp.task('fonts', function() {
@@ -131,26 +136,22 @@ gulp.task('html', function () {
   	.pipe(gulp.dest('./build'));
 });
 
-gulp.task('NO_COMPRESS', function() {
+gulp.task('NO_COMPRESS', function(cb) {
   COMPRESS = false;
+  cb();
 });
 
 
-gulp.task('default', function(cb) {
-	return runSeq('clean', ['fonts', 'images', 'definitions', 'highlightjs', 'js', 'sass', 'html'], cb);
-});
-
-gulp.task('default-devel', function(cb) {
-	return runSeq('NO_COMPRESS', 'default', cb);
-});
+gulp.task('default', gulp.series('clean', gulp.parallel('fonts', 'images', 'definitions', 'highlightjs', 'js', 'sass', 'html'), cb => cb()));
+gulp.task('default-devel', gulp.series('NO_COMPRESS', 'default', cb => cb()));
 
 
-gulp.task('serve', ['default-devel'], function(cb) {
+gulp.task('serve', gulp.series('default-devel', function(cb) {
 	
-  gulp.watch(['./source/*.html', './source/includes/**/*'], ['html']);
-  gulp.watch('./source/javascripts/**/*', ['js']);
-  gulp.watch('./source/stylesheets/**/*', ['sass']);
-  gulp.watch('./source/index.yml', ['highlightjs', 'js', 'html']);
+  gulp.watch(['./source/*.html', './source/includes/**/*'], gulp.series('html'));
+  gulp.watch('./source/javascripts/**/*', gulp.series('js'));
+  gulp.watch('./source/stylesheets/**/*', gulp.series('sass'));
+  gulp.watch('./source/index.yml', gulp.series('highlightjs', 'js', 'html'));
 
   var server = gls.static('build', 4567);
   server.start();
@@ -160,4 +161,6 @@ gulp.task('serve', ['default-devel'], function(cb) {
   });
 
   gulp.src(__filename).pipe(open({uri: 'http://localhost:4567'}));
-});
+
+  cb(); // Callback to signal completion
+}));

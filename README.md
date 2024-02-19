@@ -6,7 +6,7 @@ This is the GitHub repository of the public documentation for the Cludo API. The
 
 ## Prerequisites
 
-* Node.js (tested and running with v10.16.3)
+* Node.js (tested and running with v20.11.1)
 
 ## Building
 

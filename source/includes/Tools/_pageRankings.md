@@ -232,6 +232,7 @@ $ curl "https://api.cludo.com/api/rankings"
                     "rank": 1,
                     "showpage": true,
                     "page": {
+                        "name": "Contact Cludo",
                         "websiteid": 7578030,
                         "pageid": "https://www.cludo.com/contact",
                         "pageurl": "https://www.cludo.com/contact/",
@@ -280,6 +281,7 @@ $ curl "https://api.cludo.com/api/rankings/1689348"
                     "rank": 1,
                     "showpage": true,
                     "page": {
+                        "name": "The next generation of site search", 
                         "websiteid": 7578030,
                         "pageid": "https://www.cludo.com",
                         "pageurl": "https://www.cludo.com/",
@@ -292,6 +294,7 @@ $ curl "https://api.cludo.com/api/rankings/1689348"
                     "rank": 2,
                     "showpage": true,
                     "page": {
+                        "name": "Contact Cludo",
                         "id": 9728711,
                         "websiteid": 7578030,
                         "pageid": "https://www.cludo.com/contact",
@@ -328,6 +331,7 @@ $ curl "https://api.cludo.com/api/rankings"
                     "rank": 1,
                     "showpage": true,
                     "page": {
+                        "name": "The next generation of site search", 
                         "websiteid": 7578030,
                         "pageid": "https://www.cludo.com",
                         "pageurl": "https://www.cludo.com/",
@@ -340,6 +344,7 @@ $ curl "https://api.cludo.com/api/rankings"
                     "rank": 2,
                     "showpage": true,
                     "page": {
+                        "name": "Contact Cludo",
                         "id": 9728711,
                         "websiteid": 7578030,
                         "pageid": "https://www.cludo.com/contact",

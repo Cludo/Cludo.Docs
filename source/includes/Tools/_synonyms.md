@@ -2,7 +2,7 @@
 
 Synonyms are useful if you have the content your visitors are looking for, but they're searching for other words for the same thing.
 
-<aside class="notice">You can read more about synonyms <a href="https://cludo.zendesk.com/hc/en-us/articles/115002580111-Synonyms" target="_blank">here</a>.</aside>
+<aside class="notice">You can read more about synonyms <a href="https://help.cludo.com/tools/synonyms/" target="_blank">here</a>.</aside>
 
 <h3 id="tools_synonyms_dataStructures">Data structures</h3>
 

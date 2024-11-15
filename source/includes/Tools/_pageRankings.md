@@ -2,7 +2,7 @@
 
 Page rankings are useful if you want to control the top search results for your visitors when they search for a pre-defined term.
 
-<aside class="notice">You can read more about page rankings <a href="https://cludo.zendesk.com/hc/en-us/articles/115002451271-Page-Rankings" target="_blank">here</a>.</aside>
+<aside class="notice">You can read more about page rankings <a href="https://help.cludo.com/tools/page-rankings/" target="_blank">here</a>.</aside>
 
 <h3 id="tools_pageRankings_dataStructures">Data structures</h3>
 

@@ -53,6 +53,7 @@ includes:
   - Tools/_pageRankings
   - Tools/_quicklinks
   - Tools/_synonyms
+  - Tools/_banners
   
   - DataIndexing/_intro
   - DataIndexing/_pushurls
